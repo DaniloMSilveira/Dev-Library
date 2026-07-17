@@ -1,0 +1,38 @@
+- hosts: terraform-ansible
+  tasks:
+  - name: Instalando Python3 e virtualenv
+    apt:
+      pkg:
+      - python3
+      - virtualenv
+      update_cache: true
+    become: true
+  - name: Clonando repositório do projeto
+    git:
+      repo: https://github.com/SEU-USUARIO/SUA-API-DJANGO.git
+      dest: /home/ubuntu/app
+      version: master
+      force: yes
+  - name: Instalando dependencias com pip (Django e Django Rest)
+    pip:
+      requirements: /home/ubuntu/app/requirements.txt
+      virtualenv: /home/ubuntu/app/venv
+      virtualenv_command: python3 -m venv
+  - name: Alterando o hosts do settings
+    lineinfile:
+      path: /home/ubuntu/app/setup/settings.py
+      regexp: "ALLOWED_HOSTS"
+      line: "ALLOWED_HOSTS = ['*']"
+      backrefs: true
+  - name: Configurando banco de dados
+    shell: |
+      . /home/ubuntu/app/venv/bin/activate; 
+      python /home/ubuntu/app/manage.py migrate
+  - name: Carregando dados iniciais
+    shell: |
+      . /home/ubuntu/app/venv/bin/activate; 
+      python /home/ubuntu/app/manage.py loaddata clientes.json
+  - name: Iniciando o servidor
+    shell: |
+      . /home/ubuntu/app/venv/bin/activate; 
+      nohup python /home/ubuntu/app/manage.py runserver 0.0.0.0:8000 &
