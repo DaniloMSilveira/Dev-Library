@@ -38,7 +38,7 @@ Essas técnicas são úteis quando há muitas variáveis e é necessário reduzi
 
 ## 3.3 Redes neurais
 
-As redes neurais são modelos inspirados no cérebro artificial. Elas são compostas por camadas de neurônios artificiais que aprendem representações internas dos dados.
+As redes neurais são modelos matemáticos vagamente inspirados em algumas ideias de processamento distribuído. A analogia com o cérebro é limitada: elas são compostas por camadas de unidades parametrizadas que aprendem representações a partir dos dados.
 
 ### Perceptron e redes feedforward
 
@@ -67,19 +67,20 @@ Essas redes foram muito importantes antes do surgimento dos Transformers.
 
 Os Transformers revolucionaram o processamento de linguagem e outras áreas por causa do mecanismo de atenção.
 
-- Diferente das RNNs, eles processam sequências de forma mais paralela.
+- Diferente das RNNs, eles permitem processar em paralelo muitas posições durante o treinamento e a codificação da entrada; na geração autoregressiva, cada novo token ainda depende dos tokens anteriores.
 - O mecanismo de atenção permite que o modelo identifique quais partes da entrada são mais relevantes para cada ponto da saída.
 - Isso os torna muito eficazes para tarefas como tradução, sumarização, classificação de textos e geração de conteúdo.
 
 Componentes importantes:
 
-- Encoder: representa a entrada.
-- Decoder: gera a saída.
+- Encoder-only: produz representações da entrada, comum em classificação e busca.
+- Decoder-only: prevê o próximo token, comum em geração autoregressiva.
+- Encoder-decoder: codifica uma entrada e gera uma saída, comum em tradução e sumarização.
 - Self-attention: mede relações entre partes diferentes da mesma sequência.
 
 ## 3.5 LLMs
 
-Large Language Models são modelos baseados em Transformers treinados com grandes volumes de texto.
+Large Language Models são modelos de linguagem de grande escala, frequentemente baseados em Transformers e treinados com grandes coleções de texto, código ou outros dados. Alguns sistemas atuais também são multimodais.
 
 Eles são usados para:
 
@@ -93,13 +94,13 @@ Uma característica importante dos LLMs é a capacidade de realizar tarefas com 
 
 ## 3.6 Relação entre esses conceitos
 
-A evolução da IA passou por etapas sucessivas:
+A relação abaixo é uma forma de organizar conceitos, não uma evolução linear obrigatória:
 
 1. Algoritmos clássicos de regressão e classificação
 2. Redes neurais tradicionais
-3. Aprendizado não supervisionado
-4. Arquiteturas modernas como Transformers
-5. LLMs e modelos generativos
+3. Aprendizado supervisionado, não supervisionado e por reforço
+4. Arquiteturas profundas, incluindo CNNs, RNNs e Transformers
+5. Modelos de linguagem e sistemas generativos
 
 Cada etapa acrescentou novas capacidades ao campo e abriu espaço para soluções mais robustas e flexíveis.
 
