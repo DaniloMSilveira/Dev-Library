@@ -21,7 +21,7 @@ Um fluxo comum é dividir os dados em:
 - validação: usado para escolher configurações e comparar modelos
 - teste: usado para medir o desempenho final em dados não vistos
 
-Esse procedimento evita que o modelo seja avaliado com os mesmos dados usados para aprender. Isso gera uma estimativa mais honesta de sua capacidade de generalização.
+Esse procedimento evita que o modelo seja avaliado com os mesmos dados usados para aprender. O conjunto de teste deve permanecer intocado até a escolha final; reutilizar muitas vezes o conjunto de validação também pode induzir otimismo e influenciar a seleção do modelo.
 
 ## 4.3 Métricas para classificação
 
@@ -31,9 +31,11 @@ Para problemas com respostas categóricas, algumas métricas comuns são:
 - Precision: quanto das previsões positivas foram realmente corretas
 - Recall: quanto dos casos positivos reais foram identificados
 - F1-score: equilíbrio entre precision e recall
-- AUC-ROC: capacidade do modelo de ordenar corretamente as classes
+- AUC-ROC: capacidade de ordenar exemplos positivos acima de negativos em diferentes limiares
+- PR-AUC: resume a relação entre precision e recall e costuma ser informativa quando a classe positiva é rara
+- métricas por grupo: ajudam a identificar diferenças de erro entre segmentos relevantes
 
-Essas métricas ajudam a comparar modelos em problemas com classes diferentes, como fraude, churn, diagnóstico ou recomendação.
+Accuracy pode ser enganosa em dados desbalanceados. A métrica deve ser escolhida junto com o custo de falsos positivos e falsos negativos, o limiar de decisão e o contexto da aplicação.
 
 ## 4.4 Métricas para regressão
 
@@ -55,6 +57,8 @@ A validação cruzada divide os dados em várias partes e avalia o modelo em dif
 - Isso reduz o risco de uma avaliação muito favorável por causa de uma divisão específica.
 
 Essa técnica é especialmente útil quando o conjunto de dados é pequeno ou quando a estabilidade do modelo é importante.
+
+O esquema de divisão precisa refletir o problema: estratificação pode preservar a proporção das classes; divisão temporal evita usar o futuro para prever o passado; divisão por grupo evita que registros da mesma pessoa, cliente ou dispositivo apareçam em treino e validação. Em cenários de seleção intensa de modelos, nested cross-validation pode separar a escolha de hiperparâmetros da estimativa final.
 
 ## 4.6 Overfitting e underfitting
 
@@ -92,7 +96,7 @@ Em muitos casos, reduzir o overfitting exige regularização, mais dados ou simp
 
 Em alguns cenários, não basta saber que o modelo acertou. Também é importante entender por que ele tomou determinada decisão.
 
-Técnicas como SHAP e LIME ajudam a explicar previsões. Isso é especialmente relevante em áreas como saúde, finanças e crédito, onde transparência e rastreabilidade são importantes.
+Técnicas como SHAP e LIME produzem explicações pós-hoc úteis para investigar padrões e comunicar previsões. Elas são aproximações dependentes dos dados e da configuração; não constituem prova de causalidade nem garantem que o mecanismo interno foi completamente revelado.
 
 Em produção, é essencial monitorar:
 

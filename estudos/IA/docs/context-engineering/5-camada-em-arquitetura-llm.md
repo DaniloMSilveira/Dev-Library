@@ -33,15 +33,17 @@ A camada de contexto normalmente funciona entre:
 
 Ou seja, ela atua como uma ponte entre a solicitação do usuário e a resposta gerada pelo modelo.
 
-## 5.4 Benefícios
+## 5.4 Benefícios condicionais e riscos
 
-Uma boa camada de Context Engineering traz:
+Uma camada bem projetada pode contribuir para:
 
 - respostas mais precisas;
 - menos alucinações;
 - melhor consistência;
 - menor custo com tokens;
 - maior previsibilidade em produção.
+
+Esses resultados não são garantidos: dependem da recuperação, da seleção, da autoridade dos documentos e da avaliação. A camada também precisa tratar documentos conflitantes ou não confiáveis, prompt injection, permissões, proveniência, latência e custo.
 
 ## 5.5 Exemplo prático
 

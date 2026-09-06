@@ -4,7 +4,7 @@ Em sistemas com IA, nem todo contexto precisa ser reprocessado a cada interaçã
 
 ## 3.1 O que é memória em IA?
 
-Memória é a capacidade de guardar informações relevantes para uso futuro.
+Memória, neste contexto, é um componente do sistema que guarda informações relevantes para uso futuro. Um LLM não passa a lembrar automaticamente só porque recebeu uma mensagem; a aplicação precisa persistir, recuperar, atualizar e inserir esse conteúdo em interações posteriores.
 
 Ela pode ser:
 
@@ -47,12 +47,15 @@ Exemplo:
 - memória: "o usuário prefere respostas curtas";
 - estado: "a tarefa de revisão ainda está em andamento".
 
-## 3.5 Boas práticas de memória
+## 3.5 Políticas de memória
 
 - armazenar apenas informações realmente úteis;
 - evitar excesso de dados irrelevantes;
 - respeitar privacidade e segurança;
-- atualizar a memória quando o contexto mudar.
+- atualizar a memória quando o contexto mudar;
+- definir retenção, correção e exclusão;
+- controlar acesso e isolar dados entre usuários;
+- registrar proveniência e permitir auditoria quando necessário.
 
 ## 3.6 Exemplo prático
 

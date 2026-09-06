@@ -8,8 +8,8 @@ Embora ambos sejam áreas de engenharia, há diferenças importantes entre desen
 
 - Em software tradicional, a lógica é implementada explicitamente pelo desenvolvedor por meio de regras e instruções.
 - Em Machine Learning, parte do comportamento emerge a partir de padrões aprendidos com dados.
-- No software clássico, o comportamento costuma ser determinístico: para uma mesma entrada, a saída tende a ser previsível.
-- Em ML, o resultado pode ser probabilístico e depender da qualidade dos dados, da escolha do algoritmo e da forma como o modelo foi treinado.
+- Tanto sistemas tradicionais quanto sistemas de ML podem ser determinísticos ou conter aleatoriedade; isso depende da implementação e da configuração.
+- Em ML, parte do comportamento é aprendida a partir dos dados e pode depender da qualidade dos dados, do algoritmo, do treinamento e do limiar de decisão.
 
 Em termos práticos, um sistema tradicional resolve problemas com regras claras. Um sistema com ML tenta aprender relações que nem sempre são totalmente conhecidas antes do desenvolvimento.
 
@@ -88,7 +88,7 @@ Em Machine Learning, o ciclo é semelhante em termos de disciplina, mas com foco
 | Aspecto | Desenvolvimento tradicional | Machine Learning |
 |---|---|---|
 | Base | Regras explícitas | Dados e aprendizado |
-| Resultado | Determinístico | Probabilístico |
+| Resultado | Definido por regras e componentes, que podem ser determinísticos ou aleatórios | Definido por parâmetros aprendidos e componentes que também podem ser determinísticos ou aleatórios |
 | Validação | Testes funcionais e regras de negócio | Métricas de desempenho e generalização |
 | Manutenção | Correções e novas features | Re-treinamento, ajuste e monitoramento |
 | Foco principal | Comportamento do sistema | Padrões presentes nos dados |

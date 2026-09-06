@@ -1,6 +1,6 @@
 # 1. Conceitos fundamentais de Context Engineering
 
-Context Engineering é a prática de organizar, priorizar e entregar o contexto certo ao modelo de IA para que ele responda com mais precisão, relevância e consistência.
+Context Engineering é a prática de organizar, priorizar e entregar contexto ao modelo de IA para tentar melhorar a relevância e a consistência da resposta. O resultado depende da qualidade, autoridade e atualidade das informações recuperadas e precisa ser medido; contexto adicional também pode introduzir contradições ou prompt injection.
 
 ## 1.1 O que é contexto?
 
@@ -71,6 +71,10 @@ Se o contexto incluir apenas uma instrução genérica, a resposta poderá ser v
 
 então a resposta tende a ser muito mais útil.
 
-## 1.6 Resumo
+## 1.6 Limites e avaliação
+
+Uma camada de contexto não garante precisão nem elimina alucinações. Avalie, conforme a tarefa, qualidade da recuperação, cobertura, groundedness, taxa de respostas sem suporte, latência e custo. Documentos não confiáveis devem ser tratados como dados, não como instruções, e o sistema deve aplicar controle de acesso e proveniência.
+
+## 1.7 Resumo
 
 Context Engineering é a camada que transforma informações dispersas em um contexto estruturado e útil para o modelo. Sua função é melhorar a qualidade, a precisão e a consistência das respostas.
