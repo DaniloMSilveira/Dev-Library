@@ -1,127 +1,116 @@
 # 6. SDD para agentes de IA
 
-Agentes de IA tornam o ciclo SDD mais rápido, mas também tornam erros de escopo mais baratos de produzir e mais caros de revisar. O agente deve ser tratado como executor e colaborador técnico sob restrições explícitas, não como autoridade sobre requisitos ou arquitetura.
+Um agente de IA pode acelerar cada fase do fluxo descrito no documento 3, mas também pode ampliar o dano de uma decisão errada, mudar arquivos fora do escopo ou inventar contexto que não existe no repositório. Este documento cobre como estruturar prompts, skills, permissões e revisão para que o agente opere dentro da spec, não ao lado dela.
 
-## 6.1 Contexto mínimo
+## 6.1 Por que SDD muda o uso de agentes
 
-Forneça ao agente:
+Sem spec, um agente recebe uma instrução solta e precisa inferir requisitos, arquitetura e limites a partir do prompt e do que conseguir observar no código. Com uma spec, essas três coisas já estão explícitas em um artefato versionado, e o papel do agente muda de "decidir o que fazer" para "executar o que foi decidido, dentro dos limites definidos".
 
-- objetivo e impacto;
-- spec aprovada;
-- constituição e convenções do projeto;
-- arquivos e interfaces relevantes;
-- o que muda e o que não muda;
-- critérios de aceite;
-- comandos de validação;
-- limites de segurança, dados e permissões.
+Isso não elimina a necessidade de boas instruções. Pelo contrário: um agente ainda precisa de um prompt que diga **qual** artefato ler, **em que ordem**, e **o que fazer com a informação encontrada**. A spec dá o conteúdo; o prompt dá o comportamento.
 
-O primeiro passo deve ser leitura do repositório e das fontes relevantes. Uma resposta genérica que não referencia o código real é um sinal de que o contexto ainda é insuficiente.
+## 6.2 Contexto como insumo, não como garantia
 
-## 6.2 Fases de uma skill de SDD
+Entregar os artefatos certos a um agente não garante que ele os use corretamente. Um modelo de linguagem processa todo o conteúdo do prompt, incluindo a spec, como uma sequência de tokens, sem uma distinção estrutural automática entre "isso é uma regra inviolável" e "isso é uma sugestão". Por isso, uma constituição ou um limite de escopo precisa ser reforçado de forma explícita e repetida nos prompts de cada fase, não apenas citado uma vez no início da sessão e assumido como lembrado depois.
 
-Uma skill versionada pode seguir este fluxo:
-
-### Fase 0: perguntas
-
-Coleta contexto sobre problema, impacto, arquivos afetados e restrições. Deve interromper o processo se houver uma decisão bloqueadora.
-
-### Fase 1: SDD
-
-Gera um documento com contexto, escopo, design, fluxo, arquivos, critérios de aceite e considerações adicionais. Os caminhos devem ser reais ou explicitamente novos.
-
-### Fase 2: validação
-
-Revisa caminhos citados, compatibilidade, critérios e escopo. Apresenta o resultado da validação e aguarda aprovação.
-
-### Fase 3: tasks
-
-Cria tarefas individuais com dependências, contexto, notas de implementação e critérios verificáveis. A última task deve cuidar da verificação integrada.
-
-### Fase 4: execução
-
-Implementa uma task por vez, executa validações e informa arquivos alterados. O agente não deve começar a próxima task sem que o checkpoint anterior esteja aceitável.
+Essa limitação é a mesma discutida com mais profundidade na série de engenharia de contexto deste repositório, especialmente no que se refere a como a posição e a repetição de uma instrução dentro do prompt afetam o quanto o modelo de fato a segue.
 
 ## 6.3 Prompts por intenção
 
-Para explorar:
+Cada fase do fluxo (documento 3) tem uma intenção diferente, e o prompt deve refletir isso explicitamente, em vez de pedir tudo de uma vez.
 
-```text
-Leia a spec e o código relevante. Não edite arquivos.
-Liste o comportamento atual, o esperado, as ambiguidades e os riscos.
-Cite os caminhos reais usados na análise.
+**Investigar:** pedir ao agente que leia o código relevante e resuma o comportamento atual, sem propor solução ainda.
+
+```
+Leia os arquivos em src/app/payment/.
+Resuma o comportamento atual, sem propor mudanças.
+Liste suposições que você precisou fazer para entender o fluxo.
 ```
 
-Para planejar:
+**Especificar:** pedir que o agente ajude a redigir requirements ou design, com base no contexto já reunido.
 
-```text
-Com base na spec aprovada, proponha tasks pequenas e ordenadas.
-Para cada task, informe arquivos, dependências, critério de aceite e comando de validação.
-Não implemente.
+```
+Com base no resumo anterior, elabore um rascunho de requirements.md
+seguindo a estrutura do documento 2 desta trilha.
+Marque com [DECISÃO ABERTA] qualquer ponto que precise de confirmação minha.
 ```
 
-Para implementar:
+**Planejar:** pedir um plano de tasks, sem ainda tocar em código.
 
-```text
-Implemente somente TASK-2.
-Respeite o que não muda e não crie funcionalidades novas.
-Execute os testes relacionados e relate qualquer divergência da spec.
+```
+A partir do requirements.md e design.md aprovados, gere tasks.md
+seguindo a estrutura do documento 2. Não implemente nada ainda.
 ```
 
-Para revisar:
+**Implementar:** pedir uma task por vez, nunca o conjunto inteiro.
 
-```text
-Compare a implementação com a spec e os critérios de aceite.
-Liste primeiro violações, regressões, riscos e testes ausentes.
-Não altere arquivos até a aprovação das correções.
 ```
+Implemente somente a task T03.
+Não inicie T04 nem refatore código fora do escopo de T03.
+Ao final, liste arquivos alterados e o comando para rodar os testes afetados.
+```
+
+**Verificar:** pedir que o agente confronte o resultado com os critérios de aceite, sem ele mesmo decidir se passou.
+
+```
+Compare a implementação atual com os critérios de aceite CA01 a CA05
+do requirements.md. Para cada um, responda apenas: atendido, não atendido,
+ou não verificável sem execução manual. Não corrija nada ainda.
+```
+
+Separar essas intenções evita o padrão mais comum de falha: pedir "implemente a feature X" em um único prompt e o agente preencher todas as decisões não especificadas com a opção mais genérica possível, que raramente é a certa para o seu contexto específico.
 
 ## 6.4 Permissões e segurança
 
-Comece com permissões restritas e leitura do projeto. A aprovação automática de escritas pode ser aceitável em tarefas de baixo risco, mas não deve ser confundida com revisão de segurança.
+Um agente com acesso de escrita ao repositório, ou com capacidade de executar comandos, precisa operar sob limites explícitos, não apenas sob boas intenções no prompt.
 
-Não envie ao agente:
+Limites recomendados:
 
-- credenciais;
-- tokens ou chaves privadas;
-- dados pessoais desnecessários;
-- arquivos de produção sem necessidade;
-- contexto maior do que a tarefa exige.
+- restringir quais pastas o agente pode modificar na task atual;
+- proibir alterações em arquivos de configuração de infraestrutura, segredos ou pipelines sem revisão humana explícita;
+- exigir que o agente rode testes e linters antes de reportar uma task como concluída, mas não permitir que ele faça commit ou deploy sem confirmação;
+- nunca colar segredos, chaves de API ou tokens em specs, prompts ou logs que o agente lê, mesmo temporariamente;
+- revisar o diff gerado antes de aceitar, mesmo quando os testes passam, porque teste verde não significa escopo correto.
 
-Em infraestrutura, defina cedo autenticação, autorização, segredos, logging e rollback. Adiar segurança pode obrigar substituição de recursos ou reimplantação de toda a stack.
+Esses limites valem tanto para uma skill (seção 6.6) quanto para o uso direto do agente em um editor ou terminal. A pergunta a fazer antes de dar uma permissão nova não é "isso ajuda o agente a ser mais autônomo", é "o que acontece se o agente errar com essa permissão".
 
 ## 6.5 Context window e sessões longas
 
-Contexto finito influencia o processo. Para reduzir perda de informação:
+Specs, design e código real podem ultrapassar o que cabe confortavelmente na janela de contexto do modelo em uma única sessão. Sintomas comuns de estouro de contexto incluem o agente esquecer uma decisão tomada no início da sessão, repetir uma pergunta já respondida, ou perder a referência a um arquivo lido há muitas mensagens.
 
-- mantenha specs compactas e referenciáveis;
-- registre decisões fora da conversa;
-- divida trabalho em fases e tasks;
-- resuma estado ao trocar de sessão;
-- não dependa apenas do histórico do chat;
-- valide o que o agente realmente leu.
+Estratégias práticas:
 
-Ferramentas podem compactar ou resumir conversas, mas isso não garante preservação de todos os detalhes. Artefatos versionados são uma memória mais auditável.
+- dividir uma sessão longa em sessões menores por task, recarregando apenas a spec e os arquivos relevantes àquela task específica, em vez de manter uma sessão única do início ao fim da feature;
+- resumir decisões já tomadas em um bloco curto no início de uma nova sessão, em vez de confiar que o modelo "lembra" de uma sessão anterior;
+- preferir referenciar um arquivo pelo caminho e deixar o agente lê-lo, em vez de colar o conteúdo inteiro no prompt quando o arquivo for grande e só uma parte for relevante.
 
-## 6.6 Feedback e correção
+O gerenciamento de janela de contexto, recuperação de informação relevante e estratégias de memória entre sessões são tratados com profundidade técnica na série de engenharia de contexto deste repositório. Este documento cobre apenas a aplicação direta desses conceitos ao fluxo de SDD: a spec e as tasks são, na prática, a principal fonte de contexto estruturado que se decide o que entra ou não em uma sessão com o agente.
 
-Quando o resultado divergir, preserve a evidência:
+## 6.6 Skills como SDD operacionalizado
 
-- comportamento esperado;
-- comportamento observado;
-- passos para reproduzir;
-- mensagem de erro;
-- arquivos envolvidos;
-- hipótese sobre a causa.
+Uma skill, no sentido usado no documento 4, é uma forma de fixar o fluxo de fases (investigar, especificar, planejar, implementar, verificar) como comportamento padrão do agente dentro de um projeto, em vez de reconstruir esse fluxo manualmente em cada prompt.
 
-Depois classifique o caso: código incorreto, spec incorreta, ambiente bloqueado ou requisito novo. Atualize o artefato responsável e regenere somente o que depende dele.
+Uma skill bem desenhada para SDD deve declarar:
+
+- em qual pasta procurar a spec da feature atual;
+- qual estrutura de artefato é esperada (requirements/design/tasks separados, ou SDD.md único, conforme a seção 2.1);
+- a obrigação de aguardar aprovação explícita antes de avançar da fase de especificação para a de planejamento, e desta para a de implementação;
+- o limite de implementar uma task por vez, nunca o plano inteiro de uma vez;
+- o comando de validação (teste, build, lint) que deve rodar antes de reportar uma task como concluída.
+
+Uma skill não deve, no entanto, dar ao agente permissão para pular a aprovação humana nos checkpoints do documento 3 "para ser mais rápida". Automatizar o fluxo é diferente de automatizar a decisão sobre o fluxo.
 
 ## 6.7 O que não automatizar cegamente
 
-Não delegue sem revisão:
+Algumas decisões se beneficiam de assistência de IA, mas não deveriam ser delegadas inteiramente a um agente sem revisão humana direta:
 
-- decisões de segurança e privacidade;
-- mudanças irreversíveis em infraestrutura;
-- migrações sem estratégia de rollback;
-- requisitos legais ou financeiros;
-- aprovação final de critérios de negócio;
-- alterações amplas causadas por uma task pequena.
+- a decisão de que um requisito está completo e pode avançar para design;
+- a aprovação final da spec antes da implementação começar;
+- decisões de segurança, como forma de autenticação, exposição de dados sensíveis ou política de acesso;
+- a interpretação de uma ambiguidade de negócio que afeta usuários reais;
+- a decisão de que uma divergência entre spec e código (fase 6 do documento 3) deve ser resolvida mudando o código ou mudando a spec.
+
+A IA pode preparar essas decisões, levantando opções e trade-offs, mas a responsabilidade final continua sendo de quem está revisando. Um agente que relata "implementado e testado com sucesso" não substitui a revisão humana do que de fato foi implementado, especialmente quando o teste em si pode ter sido escrito para validar a interpretação equivocada do agente sobre o requisito.
+
+## 6.8 Resumo
+
+Usar um agente de IA dentro de um fluxo de SDD muda o que se pede a ele: não "resolva o problema", mas "execute esta fase específica, dentro destes limites, usando esta spec como fonte de verdade". Isso exige prompts separados por intenção, permissões explícitas e revisadas, atenção ao tamanho de contexto em sessões longas, e uma linha clara entre o que pode ser automatizado e o que exige aprovação humana em cada checkpoint do fluxo descrito no documento 3.

@@ -21,13 +21,19 @@ SDD desloca parte desse raciocínio para artefatos explícitos. O agente pode aj
 
 Uma spec não precisa ser um único arquivo. Ela pode ser um conjunto de artefatos versionados e relacionados:
 
-- **requisitos:** o problema, o objetivo, os fluxos e os critérios de aceitação;
-- **design:** arquitetura, componentes, interfaces, dados e decisões técnicas;
-- **tasks:** passos pequenos, ordenados e verificáveis;
-- **contratos:** OpenAPI, schemas, eventos ou interfaces públicas;
-- **testes:** exemplos executáveis do comportamento esperado;
-- **constituição:** regras permanentes de qualidade, arquitetura, segurança e manutenção;
-- **documentação operacional:** validação, deploy, observabilidade e rollback.
+**Requisitos:** o problema, o objetivo, os fluxos e os critérios de aceitação.
+
+**Design:** arquitetura, componentes, interfaces, dados e decisões técnicas.
+
+**Tasks:** passos pequenos, ordenados e verificáveis.
+
+**Contratos:** OpenAPI, schemas, eventos ou interfaces públicas.
+
+**Testes:** exemplos executáveis do comportamento esperado.
+
+**Constituição:** regras permanentes de qualidade, arquitetura, segurança e manutenção.
+
+**Documentação operacional:** validação, deploy, observabilidade e rollback.
 
 Uma informação só deve ser tratada como contrato quando houver clareza sobre sua autoridade. Um protótipo visual, por exemplo, pode ser uma referência de design, mas não necessariamente define acessibilidade, comportamento de erro ou contrato de dados.
 
@@ -43,6 +49,8 @@ Os níveis abaixo são uma forma útil de avaliar a maturidade do processo. Eles
 
 O fluxo `spec-first` já melhora o planejamento. O ganho mais duradouro costuma aparecer quando a equipe mantém a spec ancorada no comportamento real, atualizando-a quando a intenção ou o contrato mudam.
 
+Um sinal prático para saber em qual nível o time realmente está: olhe a última mudança de comportamento relevante e pergunte se a spec foi aberta e atualizada junto com o código, ou só o código mudou. Se a spec não é tocada há várias mudanças de comportamento, o time está em `spec-once` na prática, mesmo que tenha começado em `spec-first` ou `spec-anchored`. A progressão de nível não é uma decisão única de ferramenta, é um hábito: exigir que toda mudança de comportamento venha acompanhada de uma atualização de spec, ainda que pequena, é o que sustenta `spec-anchored` ao longo do tempo.
+
 ### Spec-once: um antipadrão útil de reconhecer
 
 Uma equipe pode escrever uma boa spec, implementá-la e nunca mais consultá-la. Esse processo parece SDD no início, mas vira `spec-once`: a especificação foi usada como lançamento do trabalho, não como instrumento de manutenção.
@@ -53,14 +61,19 @@ A correção é tratar mudanças de comportamento como mudanças coordenadas em 
 
 SDD não substitui TDD, BDD, ATDD ou contract testing. Ele organiza essas práticas em torno de uma intenção compartilhada.
 
-- **TDD:** usa testes para guiar pequenos ciclos de implementação.
-- **BDD:** expressa comportamento em linguagem que produto e engenharia conseguem revisar.
-- **Specification by Example:** transforma exemplos concretos em especificações colaborativas.
-- **Contract testing:** verifica o acordo entre consumidor e provedor de uma integração.
-- **API-first:** define uma interface antes de implementar seus consumidores e provedores.
-- **Design by Contract:** formaliza pré-condições, pós-condições e invariantes.
+**TDD:** usa testes para guiar pequenos ciclos de implementação. Encaixa bem dentro de uma task de SDD: a spec diz o que implementar, TDD guia como implementar aquele pedaço específico.
 
-A diferença de ênfase do SDD contemporâneo está na combinação de especificação, tooling e agentes de IA em um fluxo iterativo e rastreável.
+**BDD:** expressa comportamento em linguagem que produto e engenharia conseguem revisar. Os critérios de aceite de uma spec de SDD podem ser escritos diretamente no formato Given/When/Then do BDD, unindo as duas práticas em vez de escolher uma.
+
+**Specification by Example:** transforma exemplos concretos em especificações colaborativas. Serve como técnica para escrever a seção de requisitos ou critérios de aceite de uma spec, não como alternativa a ela.
+
+**Contract testing:** verifica o acordo entre consumidor e provedor de uma integração. Útil como forma de validar a seção de contratos de uma spec quando a feature envolve integração entre serviços.
+
+**API-first:** define uma interface antes de implementar seus consumidores e provedores. É uma instância específica de SDD aplicada a contratos de API.
+
+**Design by Contract:** formaliza pré-condições, pós-condições e invariantes. Pode alimentar diretamente a seção de design de uma spec quando o componente tem contrato comportamental rígido.
+
+A diferença de ênfase do SDD contemporâneo está na combinação de especificação, tooling e agentes de IA em um fluxo iterativo e rastreável. Na prática, a escolha não costuma ser "SDD ou BDD": a pergunta mais útil é qual dessas práticas mais específicas usar dentro de cada artefato da spec.
 
 ## 1.5 Benefícios e limites
 
@@ -84,8 +97,8 @@ Limites importantes:
 
 ## 1.6 Navegação da trilha
 
-- [2. Artefatos e estrutura](2-artefatos-e-estrutura.md): requisitos, design, tasks, constituição e SDD de feature.
-- [3. Fluxo operacional e checkpoints](3-fluxo-operacional-e-checkpoints.md): do contexto inicial à implementação e à manutenção.
-- [4. Spec Kit e ferramentas](4-spec-kit-e-ferramentas.md): comandos, papéis e critérios para escolher tooling.
-- [5. Exemplo com Angular](5-exemplo-com-angular.md): uma feature pequena organizada em requirements, design e tasks.
-- [6. SDD para agentes de IA](6-sdd-para-agentes-de-ia.md): prompts, skills, revisão e limites de automação.
+- [2. Artefatos e estrutura](./2-artefatos-e-estrutura.md): requisitos, design, tasks, constituição e SDD de feature.
+- [3. Fluxo operacional e checkpoints](./3-fluxo-operacional-e-checkpoints.md): do contexto inicial à implementação e à manutenção.
+- [4. Spec Kit e ferramentas](./4-spec-kit-e-ferramentas.md): comandos, papéis e critérios para escolher tooling.
+- [5. Exemplo com Angular](./5-exemplo-com-angular.md): uma feature pequena organizada em requirements, design e tasks.
+- [6. SDD para agentes de IA](./6-sdd-para-agentes-de-ia.md): prompts, skills, revisão e limites de automação.

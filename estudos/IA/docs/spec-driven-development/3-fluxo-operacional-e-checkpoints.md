@@ -2,7 +2,15 @@
 
 O valor do SDD aparece no processo de revisão e implementação, não apenas na existência dos arquivos. O fluxo abaixo combina a coleta de contexto, a construção da spec, o planejamento, a execução incremental e a atualização contínua dos artefatos.
 
-## 3.1 Fase 0: coletar contexto
+## 3.1 Quando aplicar o fluxo completo
+
+As oito fases descritas neste documento cobrem o caso de uma feature nova ou uma mudança de escopo considerável, onde ambiguidade, arquitetura e coordenação entre várias tasks realmente pesam. Nem toda mudança justifica passar pelas oito fases com o mesmo rigor.
+
+Para uma correção pequena e bem compreendida, como corrigir uma condição incorreta em uma validação já existente, aplicar o fluxo completo é desperdício: a fase 0 (coletar contexto) e a fase 1 (gerar spec) podem colapsar em poucas linhas dentro de um `SDD.md`, como descrito no documento anterior, a fase 2 (esclarecer ambiguidades) muitas vezes nem é necessária porque o comportamento correto já é conhecido, e a fase 3 (gerar o plano) se resume à própria lista de arquivos a modificar.
+
+Um critério prático para decidir o nível de rigor: se a mudança afeta um único componente, não introduz uma decisão de arquitetura nova e o comportamento correto já é conhecido sem ambiguidade, a versão condensada de `SDD.md` mais tasks é suficiente. Se a mudança introduz um componente novo, uma decisão de arquitetura, ou depende de esclarecer algo com quem pediu a mudança, vale seguir o fluxo completo abaixo. Pular fases não deveria significar pular checkpoints. Mesmo uma correção pequena se beneficia de ter uma spec aprovada antes da implementação e uma verificação ao final, apenas com menos cerimônia em cada etapa.
+
+## 3.2 Fase 0: coletar contexto
 
 Antes de escrever a spec, responda perguntas direcionadas:
 
@@ -15,7 +23,7 @@ Antes de escrever a spec, responda perguntas direcionadas:
 
 A coleta deve consultar o repositório real. Uma especificação genérica que inventa nomes de arquivos, funções ou interfaces cria um contexto enganoso para a IA.
 
-## 3.2 Fase 1: gerar e revisar a spec
+## 3.3 Fase 1: gerar e revisar a spec
 
 O documento deve explicar o estado atual, a intenção e o resultado esperado. Antes de apresentá-lo para implementação, faça uma auto-revisão:
 
@@ -28,7 +36,7 @@ O documento deve explicar o estado atual, a intenção e o resultado esperado. A
 
 O checkpoint desta fase é a aprovação da spec. Sem essa aprovação, a IA pode ajudar a fazer perguntas e apontar lacunas, mas não deveria iniciar uma implementação ampla.
 
-## 3.3 Fase 2: esclarecer ambiguidades
+## 3.4 Fase 2: esclarecer ambiguidades
 
 Uma etapa explícita de esclarecimento evita que o agente escolha defaults importantes sem autorização. Pergunte, por exemplo:
 
@@ -40,7 +48,7 @@ Uma etapa explícita de esclarecimento evita que o agente escolha defaults impor
 
 Registre a decisão na spec quando ela alterar o comportamento. Não esconda uma escolha importante apenas dentro do prompt.
 
-## 3.4 Fase 3: gerar o plano
+## 3.5 Fase 3: gerar o plano
 
 O plano conecta os requisitos à arquitetura e às tarefas. Ele deve mostrar:
 
@@ -54,7 +62,7 @@ O plano conecta os requisitos à arquitetura e às tarefas. Ele deve mostrar:
 
 O plano deve ser revisado antes de ser convertido em tasks. Um plano detalhado para a solução errada apenas acelera o erro.
 
-## 3.5 Fase 4: gerar e executar tasks
+## 3.6 Fase 4: gerar e executar tasks
 
 Quebre o trabalho em passos pequenos. Uma sequência possível é:
 
@@ -67,9 +75,9 @@ Quebre o trabalho em passos pequenos. Uma sequência possível é:
 
 Cada task deve alterar o mínimo necessário. Após cada etapa, execute o teste mais próximo do comportamento alterado e revise o diff antes de continuar.
 
-## 3.6 Fase 5: analisar e implementar
+## 3.7 Fase 5: analisar e implementar
 
-Antes de implementar tudo, analise a consistência entre requisitos, design e tasks. Procure:
+Antes de implementar tudo, analise a consistência entre requisitos, design e tasks. Use a matriz de rastreabilidade descrita no documento anterior para procurar:
 
 - requisito sem task;
 - task sem requisito;
@@ -80,7 +88,7 @@ Antes de implementar tudo, analise a consistência entre requisitos, design e ta
 
 Somente então implemente seguindo a ordem das tasks. O agente deve relatar arquivos alterados e comandos de validação, e não expandir o escopo silenciosamente.
 
-## 3.7 Fase 6: corrigir divergências
+## 3.8 Fase 6: corrigir divergências
 
 Quando algo falhar, classifique a divergência:
 
@@ -93,7 +101,7 @@ Quando algo falhar, classifique a divergência:
 
 Não corrija uma divergência apenas com prompt solto. Preserve a evidência, atualize o artefato responsável e repita os checkpoints necessários.
 
-## 3.8 Fase 7: manter a spec ancorada
+## 3.9 Fase 7: manter a spec ancorada
 
 Depois do merge ou deploy:
 
@@ -103,4 +111,4 @@ Depois do merge ou deploy:
 - registre decisões aprendidas na constituição ou no design;
 - revise segurança e operação quando a arquitetura evoluir.
 
-Uma feature nova deve ter uma nova spec ou uma alteração explícita na spec existente. Isso evita que mudanças importantes desapareçam em uma sequência de prompts.
+Uma feature nova deve ter uma nova spec ou uma alteração explícita na spec existente. Isso evita que mudanças importantes desapareçam em uma sequência de prompts. Esta fase é também o que diferencia `spec-anchored` de `spec-once`, descritos no primeiro documento desta série: pular a fase 7 de forma sistemática é exatamente como uma spec deixa de ser referência viva e vira um artefato de lançamento único.
