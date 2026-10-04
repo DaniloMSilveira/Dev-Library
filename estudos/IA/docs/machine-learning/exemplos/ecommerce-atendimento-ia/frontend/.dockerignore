@@ -1,0 +1,8 @@
+# Projeto Desenvolvido na Data Science Academy
+__pycache__
+*.pyc
+.env
+.git
+.pytest_cache
+*.md
+.ruff_cache

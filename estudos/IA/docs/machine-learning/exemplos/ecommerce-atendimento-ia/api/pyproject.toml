@@ -1,0 +1,14 @@
+[project]
+name = "ecommerce-api"
+version = "1.0.0"
+description = "API do e-commerce com FastAPI"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning:pydantic",
+]
+cache_dir = "/tmp/.pytest_cache"

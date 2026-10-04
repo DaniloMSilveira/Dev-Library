@@ -1,0 +1,187 @@
+[
+  {
+    "id": "ORD-001",
+    "customer_id": "CUST-001",
+    "status": "delivered",
+    "items": [
+      {"product_id": "PROD-001", "quantity": 1, "unit_price": 7999.90}
+    ],
+    "total": 7999.90,
+    "tracking_code": "BR100000001XX",
+    "created_at": "2024-11-01T14:00:00Z",
+    "updated_at": "2024-11-06T09:00:00Z"
+  },
+  {
+    "id": "ORD-002",
+    "customer_id": "CUST-002",
+    "status": "delivered",
+    "items": [
+      {"product_id": "PROD-009", "quantity": 1, "unit_price": 12499.90},
+      {"product_id": "PROD-023", "quantity": 1, "unit_price": 349.90}
+    ],
+    "total": 12849.80,
+    "tracking_code": "BR100000002XX",
+    "created_at": "2024-11-03T10:30:00Z",
+    "updated_at": "2024-11-08T11:00:00Z"
+  },
+  {
+    "id": "ORD-003",
+    "customer_id": "CUST-003",
+    "status": "delivered",
+    "items": [
+      {"product_id": "PROD-016", "quantity": 1, "unit_price": 5499.90}
+    ],
+    "total": 5499.90,
+    "tracking_code": "BR100000003XX",
+    "created_at": "2024-11-05T16:15:00Z",
+    "updated_at": "2024-11-10T14:00:00Z"
+  },
+  {
+    "id": "ORD-004",
+    "customer_id": "CUST-001",
+    "status": "delivered",
+    "items": [
+      {"product_id": "PROD-021", "quantity": 2, "unit_price": 199.90}
+    ],
+    "total": 399.80,
+    "tracking_code": "BR100000004XX",
+    "created_at": "2024-11-08T09:00:00Z",
+    "updated_at": "2024-11-13T10:30:00Z"
+  },
+  {
+    "id": "ORD-005",
+    "customer_id": "CUST-004",
+    "status": "delivered",
+    "items": [
+      {"product_id": "PROD-005", "quantity": 1, "unit_price": 4299.90},
+      {"product_id": "PROD-019", "quantity": 1, "unit_price": 299.90}
+    ],
+    "total": 4599.80,
+    "tracking_code": "BR100000005XX",
+    "created_at": "2024-11-10T13:45:00Z",
+    "updated_at": "2024-11-15T08:00:00Z"
+  },
+  {
+    "id": "ORD-006",
+    "customer_id": "CUST-005",
+    "status": "shipped",
+    "items": [
+      {"product_id": "PROD-002", "quantity": 1, "unit_price": 6499.90}
+    ],
+    "total": 6499.90,
+    "tracking_code": "BR100000006XX",
+    "created_at": "2024-11-15T11:00:00Z",
+    "updated_at": "2024-11-18T07:30:00Z"
+  },
+  {
+    "id": "ORD-007",
+    "customer_id": "CUST-006",
+    "status": "shipped",
+    "items": [
+      {"product_id": "PROD-010", "quantity": 1, "unit_price": 8999.90}
+    ],
+    "total": 8999.90,
+    "tracking_code": "BR100000007XX",
+    "created_at": "2024-11-16T15:20:00Z",
+    "updated_at": "2024-11-19T09:00:00Z"
+  },
+  {
+    "id": "ORD-008",
+    "customer_id": "CUST-007",
+    "status": "shipped",
+    "items": [
+      {"product_id": "PROD-027", "quantity": 1, "unit_price": 499.90},
+      {"product_id": "PROD-028", "quantity": 1, "unit_price": 899.90}
+    ],
+    "total": 1399.80,
+    "tracking_code": "BR100000008XX",
+    "created_at": "2024-11-17T08:45:00Z",
+    "updated_at": "2024-11-20T10:00:00Z"
+  },
+  {
+    "id": "ORD-009",
+    "customer_id": "CUST-003",
+    "status": "shipped",
+    "items": [
+      {"product_id": "PROD-014", "quantity": 1, "unit_price": 6999.90}
+    ],
+    "total": 6999.90,
+    "tracking_code": "BR100000009XX",
+    "created_at": "2024-11-18T12:00:00Z",
+    "updated_at": "2024-11-21T06:30:00Z"
+  },
+  {
+    "id": "ORD-010",
+    "customer_id": "CUST-008",
+    "status": "processing",
+    "items": [
+      {"product_id": "PROD-003", "quantity": 1, "unit_price": 3999.90}
+    ],
+    "total": 3999.90,
+    "tracking_code": null,
+    "created_at": "2024-11-20T14:30:00Z",
+    "updated_at": "2024-11-20T14:30:00Z"
+  },
+  {
+    "id": "ORD-011",
+    "customer_id": "CUST-009",
+    "status": "processing",
+    "items": [
+      {"product_id": "PROD-011", "quantity": 1, "unit_price": 14999.90},
+      {"product_id": "PROD-022", "quantity": 1, "unit_price": 149.90}
+    ],
+    "total": 15149.80,
+    "tracking_code": null,
+    "created_at": "2024-11-21T09:15:00Z",
+    "updated_at": "2024-11-21T09:15:00Z"
+  },
+  {
+    "id": "ORD-012",
+    "customer_id": "CUST-010",
+    "status": "processing",
+    "items": [
+      {"product_id": "PROD-007", "quantity": 1, "unit_price": 2799.90}
+    ],
+    "total": 2799.90,
+    "tracking_code": null,
+    "created_at": "2024-11-22T16:00:00Z",
+    "updated_at": "2024-11-22T16:00:00Z"
+  },
+  {
+    "id": "ORD-013",
+    "customer_id": "CUST-002",
+    "status": "confirmed",
+    "items": [
+      {"product_id": "PROD-025", "quantity": 1, "unit_price": 3999.90}
+    ],
+    "total": 3999.90,
+    "tracking_code": null,
+    "created_at": "2024-11-23T10:00:00Z",
+    "updated_at": "2024-11-23T10:00:00Z"
+  },
+  {
+    "id": "ORD-014",
+    "customer_id": "CUST-005",
+    "status": "confirmed",
+    "items": [
+      {"product_id": "PROD-017", "quantity": 1, "unit_price": 4999.90},
+      {"product_id": "PROD-020", "quantity": 1, "unit_price": 249.90}
+    ],
+    "total": 5249.80,
+    "tracking_code": null,
+    "created_at": "2024-11-24T08:30:00Z",
+    "updated_at": "2024-11-24T08:30:00Z"
+  },
+  {
+    "id": "ORD-015",
+    "customer_id": "CUST-004",
+    "status": "confirmed",
+    "items": [
+      {"product_id": "PROD-030", "quantity": 2, "unit_price": 349.90}
+    ],
+    "total": 699.80,
+    "tracking_code": null,
+    "created_at": "2024-11-25T11:45:00Z",
+    "updated_at": "2024-11-25T11:45:00Z"
+  }
+]

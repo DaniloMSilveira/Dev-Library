@@ -1,0 +1,247 @@
+# Projeto Desenvolvido na Data Science Academy
+name: dsaprojeto2
+
+x-db-env: &db-env
+  DATABASE_URL: postgresql+asyncpg://${DB_USER:-ecommerce_user}:${DB_PASSWORD:-ecommerce_pass}@db:5432/ecommerce
+
+x-chromadb-env: &chromadb-env
+  CHROMADB_HOST: chromadb
+  CHROMADB_PORT: 8000
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  # PostgreSQL
+  db:
+    image: postgres:16-alpine
+    container_name: ecommerce-db
+    environment:
+      POSTGRES_DB: ecommerce
+      POSTGRES_USER: ${DB_USER:-ecommerce_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-ecommerce_pass}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-ecommerce_user} -d ecommerce"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - api-db
+    logging: *default-logging
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+
+  # ChromaDB (Vector Store)
+  chromadb:
+    image: chromadb/chroma:0.5.5
+    container_name: ecommerce-chromadb
+    ports:
+      - "127.0.0.1:8002:8000"
+    volumes:
+      - chromadb_data:/chroma/chroma
+    environment:
+      - ANONYMIZED_TELEMETRY=FALSE
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend-chromadb
+    logging: *default-logging
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+
+  # API (FastAPI)
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: ecommerce-api
+    ports:
+      - "8000:8000"
+    environment:
+      <<: *db-env
+      BACKEND_URL: http://backend:8001
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - frontend-api
+      - api-db
+      - api-backend
+    logging: *default-logging
+    restart: unless-stopped
+    stop_grace_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
+
+  # Backend — Agentes IA (LangGraph)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-backend
+    ports:
+      - "8001:8001"
+    environment:
+      <<: *chromadb-env
+      API_URL: http://api:8000
+      ANONYMIZED_TELEMETRY: "False"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data:ro
+    depends_on:
+      api:
+        condition: service_healthy
+      chromadb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - api-backend
+      - backend-chromadb
+    logging: *default-logging
+    restart: unless-stopped
+    stop_grace_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+
+  # Frontend (Streamlit)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ecommerce-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: http://api:8000
+    env_file:
+      - .env
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - frontend-api
+    logging: *default-logging
+    restart: unless-stopped
+    stop_grace_period: 15s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+
+  # Seed do Banco de Dados (execução única)
+  seed:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: ecommerce-seed
+    command: python -m data.scripts.seed_database
+    environment:
+      <<: *db-env
+    volumes:
+      - ./data:/app/data:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - api-db
+    logging: *default-logging
+    restart: "no"
+
+  # Ingestão da Base de Conhecimento (execução única)
+  ingest:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-ingest
+    command: python -m scripts.ingest_knowledge_base
+    environment:
+      <<: *chromadb-env
+      ANONYMIZED_TELEMETRY: "False"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data:ro
+      - ./scripts:/app/scripts:ro
+    depends_on:
+      chromadb:
+        condition: service_healthy
+    networks:
+      - backend-chromadb
+    logging: *default-logging
+    restart: "no"
+
+volumes:
+  postgres_data:
+    name: ecommerce-postgres-data
+  chromadb_data:
+    name: ecommerce-chromadb-data
+
+networks:
+  frontend-api:
+    name: ecommerce-frontend-api
+    driver: bridge
+  api-db:
+    name: ecommerce-api-db
+    driver: bridge
+  api-backend:
+    name: ecommerce-api-backend
+    driver: bridge
+  backend-chromadb:
+    name: ecommerce-backend-chromadb
+    driver: bridge

@@ -1,0 +1,134 @@
+/* Projeto Desenvolvido na Data Science Academy */
+
+/*
+ * Estilos customizados para a aplicação de previsão de churn.
+ *
+ * Este arquivo é injetado no Streamlit via st.markdown() com unsafe_allow_html=True
+ * no app.py (entry point). O Streamlit gera HTML internamente, e os seletores
+ * abaixo usam atributos data-testid que o Streamlit adiciona aos seus componentes,
+ * permitindo customização sem alterar o código-fonte do framework.
+ *
+ * Seletores com data-testid (ex: [data-testid="stMetric"]) são a forma recomendada
+ * de estilizar componentes do Streamlit, pois são mais estáveis que classes CSS
+ * geradas automaticamente (que podem mudar entre versões).
+ */
+
+/* ------------------------------------------------------------------ */
+/* Header da aplicação                                                 */
+/* ------------------------------------------------------------------ */
+
+/* Torna o header padrão do Streamlit transparente para não conflitar
+   com o banner customizado definido abaixo */
+.stApp header {
+    background-color: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* Banner customizado (substituindo o header padrão)                   */
+/* ------------------------------------------------------------------ */
+
+/* Gradiente de fundo com 3 pontos de cor (135° = diagonal)
+   Renderizado via HTML injetado com st.markdown() no app.py */
+.custom-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.custom-banner h1 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem 0;
+}
+
+.custom-banner p {
+    color: #b0b8c8;
+    font-size: 1.05rem;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cards de métricas (st.metric)                                       */
+/* ------------------------------------------------------------------ */
+
+/* Estiliza os cards de métricas com fundo cinza claro e borda azul
+   à esquerda, criando uma aparência de "card" visual */
+div[data-testid="stMetric"] {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    border-left: 4px solid #3498db;
+}
+
+/* ------------------------------------------------------------------ */
+/* Indicadores de risco (st.error / st.success)                        */
+/* ------------------------------------------------------------------ */
+
+/* Vermelho para alertas de churn alto (risco) */
+.stAlert [data-testid="stAlertContentError"] {
+    border-left-color: #e74c3c;
+}
+
+/* Verde para indicadores de retenção (sem risco) */
+.stAlert [data-testid="stAlertContentSuccess"] {
+    border-left-color: #2ecc71;
+}
+
+/* ------------------------------------------------------------------ */
+/* Botões                                                              */
+/* ------------------------------------------------------------------ */
+
+/* Sobrescreve a cor padrão dos botões primários do Streamlit
+   para manter consistência com a paleta de cores do projeto */
+.stButton button[kind="primary"] {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+/* Estado hover: cor levemente mais escura para feedback visual */
+.stButton button[kind="primary"]:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+/* ------------------------------------------------------------------ */
+/* Sidebar                                                             */
+/* ------------------------------------------------------------------ */
+
+/* Cor de fundo da barra lateral */
+section[data-testid="stSidebar"] {
+    background-color: #f0f2f6;
+}
+
+/*
+ * Header "Menu de Operações" acima da navegação automática.
+ *
+ * O Streamlit gera automaticamente a navegação da sidebar (links para as
+ * páginas em pages/) e NÃO permite inserir conteúdo acima dela via Python.
+ *
+ * Solução: usa o pseudo-elemento CSS ::before no container da navegação
+ * para renderizar o título "Menu de Operações" como conteúdo gerado pelo CSS.
+ *
+ * ::before cria um pseudo-elemento como primeiro filho do elemento selecionado,
+ * com o texto definido pela propriedade "content".
+ */
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"]::before {
+    content: "Menu de Operações";
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 0.5rem 0 0.75rem 0;
+    margin-bottom: 0.25rem;
+    color: #1a1a2e;
+}
+
+/* ------------------------------------------------------------------ */
+/* Tabelas de dados                                                    */
+/* ------------------------------------------------------------------ */
+
+/* Efeito hover nas linhas das tabelas para facilitar leitura */
+.dataframe tbody tr:hover {
+    background-color: #e8f4f8;
+}

@@ -1,0 +1,595 @@
+[
+  {
+    "id": "PROD-001",
+    "name": "iPhone 15 Pro 256GB",
+    "description": "O iPhone 15 Pro conta com o chip A17 Pro, o mais avançado da Apple, proporcionando desempenho excepcional em jogos e tarefas exigentes. Seu corpo em titânio é leve e resistente, enquanto a câmera de 48MP captura fotos com detalhes impressionantes. Disponível na cor Titânio Natural.",
+    "category": "smartphones",
+    "brand": "Apple",
+    "price": 7999.90,
+    "stock": 45,
+    "specs": {
+      "display": "6.1\" Super Retina XDR OLED",
+      "processor": "A17 Pro",
+      "ram": "8GB",
+      "storage": "256GB",
+      "battery": "3274mAh",
+      "camera": "48MP + 12MP + 12MP"
+    },
+    "image_url": "/static/products/iphone-15-pro.jpg",
+    "rating": 4.8,
+    "reviews_count": 1247
+  },
+  {
+    "id": "PROD-002",
+    "name": "Samsung Galaxy S24 Ultra 512GB",
+    "description": "O Galaxy S24 Ultra é o smartphone mais poderoso da Samsung, equipado com o processador Snapdragon 8 Gen 3 e a revolucionária Galaxy AI integrada. Sua câmera de 200MP entrega fotos de altíssima resolução, e a S Pen embutida oferece produtividade incomparável. Corpo em titânio com tela Dynamic AMOLED 2X de 6.8 polegadas.",
+    "category": "smartphones",
+    "brand": "Samsung",
+    "price": 8499.90,
+    "stock": 38,
+    "specs": {
+      "display": "6.8\" Dynamic AMOLED 2X QHD+",
+      "processor": "Snapdragon 8 Gen 3",
+      "ram": "12GB",
+      "storage": "512GB",
+      "battery": "5000mAh",
+      "camera": "200MP + 50MP + 12MP + 10MP"
+    },
+    "image_url": "/static/products/galaxy-s24-ultra.jpg",
+    "rating": 4.7,
+    "reviews_count": 983
+  },
+  {
+    "id": "PROD-003",
+    "name": "Google Pixel 8 Pro 128GB",
+    "description": "O Pixel 8 Pro oferece a experiência Android mais pura, com atualizações garantidas por 7 anos e recursos de IA exclusivos do Google. Seu sistema de câmeras com sensor principal de 50MP e processamento computacional avançado pelo chip Tensor G3 entrega as melhores fotos da categoria. Ideal para quem valoriza fotografia e software otimizado.",
+    "category": "smartphones",
+    "brand": "Google",
+    "price": 5299.90,
+    "stock": 22,
+    "specs": {
+      "display": "6.7\" LTPO OLED QHD+ 120Hz",
+      "processor": "Google Tensor G3",
+      "ram": "12GB",
+      "storage": "128GB",
+      "battery": "5050mAh",
+      "camera": "50MP + 48MP + 48MP"
+    },
+    "image_url": "/static/products/pixel-8-pro.jpg",
+    "rating": 4.6,
+    "reviews_count": 567
+  },
+  {
+    "id": "PROD-004",
+    "name": "Xiaomi 14 256GB",
+    "description": "O Xiaomi 14 combina hardware premium com preço competitivo, trazendo câmeras desenvolvidas em parceria com a Leica para fotografias com cores naturais e ricas. Equipado com o Snapdragon 8 Gen 3 e carregamento rápido de 90W, é uma das melhores opções custo-benefício do mercado. Design compacto e elegante com acabamento em vidro.",
+    "category": "smartphones",
+    "brand": "Xiaomi",
+    "price": 4199.90,
+    "stock": 55,
+    "specs": {
+      "display": "6.36\" AMOLED LTPO 120Hz",
+      "processor": "Snapdragon 8 Gen 3",
+      "ram": "12GB",
+      "storage": "256GB",
+      "battery": "4610mAh",
+      "camera": "50MP Leica + 50MP + 50MP"
+    },
+    "image_url": "/static/products/xiaomi-14.jpg",
+    "rating": 4.5,
+    "reviews_count": 412
+  },
+  {
+    "id": "PROD-005",
+    "name": "Motorola Edge 40 Pro 256GB",
+    "description": "O Motorola Edge 40 Pro traz tela curva pOLED de 165Hz para uma experiência visual ultra fluida, além de carregamento turbo de 125W que recarrega a bateria em minutos. Conta com câmera de 50MP com estabilização óptica e resistência à água IP68. Software próximo ao Android puro com gestos exclusivos Motorola.",
+    "category": "smartphones",
+    "brand": "Motorola",
+    "price": 3799.90,
+    "stock": 33,
+    "specs": {
+      "display": "6.67\" pOLED FHD+ 165Hz",
+      "processor": "Snapdragon 8 Gen 2",
+      "ram": "12GB",
+      "storage": "256GB",
+      "battery": "4600mAh",
+      "camera": "50MP + 50MP + 12MP"
+    },
+    "image_url": "/static/products/motorola-edge-40-pro.jpg",
+    "rating": 4.4,
+    "reviews_count": 328
+  },
+  {
+    "id": "PROD-006",
+    "name": "iPhone 15 128GB",
+    "description": "O iPhone 15 traz a Dynamic Island para o modelo padrão, junto com o chip A16 Bionic que garante desempenho suave em todas as tarefas do dia a dia. A nova câmera principal de 48MP captura fotos com o dobro de resolução, e o conector USB-C facilita o carregamento universal. Corpo em alumínio com design colorido.",
+    "category": "smartphones",
+    "brand": "Apple",
+    "price": 5499.90,
+    "stock": 60,
+    "specs": {
+      "display": "6.1\" Super Retina XDR OLED",
+      "processor": "A16 Bionic",
+      "ram": "6GB",
+      "storage": "128GB",
+      "battery": "3349mAh",
+      "camera": "48MP + 12MP"
+    },
+    "image_url": "/static/products/iphone-15.jpg",
+    "rating": 4.7,
+    "reviews_count": 2134
+  },
+  {
+    "id": "PROD-007",
+    "name": "Samsung Galaxy A55 5G 128GB",
+    "description": "O Galaxy A55 5G oferece recursos premium a um preço acessível, com tela Super AMOLED de 120Hz e resistência à água IP67. Equipado com o processador Exynos 1480 e bateria de 5000mAh, garante um dia inteiro de uso sem preocupações. Excelente opção intermediária com câmera tripla de 50MP.",
+    "category": "smartphones",
+    "brand": "Samsung",
+    "price": 2299.90,
+    "stock": 85,
+    "specs": {
+      "display": "6.6\" Super AMOLED FHD+ 120Hz",
+      "processor": "Exynos 1480",
+      "ram": "8GB",
+      "storage": "128GB",
+      "battery": "5000mAh",
+      "camera": "50MP + 12MP + 5MP"
+    },
+    "image_url": "/static/products/galaxy-a55.jpg",
+    "rating": 4.3,
+    "reviews_count": 1876
+  },
+  {
+    "id": "PROD-008",
+    "name": "Xiaomi Redmi Note 13 Pro 256GB",
+    "description": "O Redmi Note 13 Pro surpreende com câmera de 200MP em um smartphone intermediário, entregando fotos com detalhes impressionantes. Seu display AMOLED de 120Hz proporciona uma experiência visual vibrante, e o carregamento rápido de 67W garante praticidade no dia a dia. Ótimo custo-benefício para quem busca recursos avançados sem gastar muito.",
+    "category": "smartphones",
+    "brand": "Xiaomi",
+    "price": 1699.90,
+    "stock": 120,
+    "specs": {
+      "display": "6.67\" AMOLED FHD+ 120Hz",
+      "processor": "MediaTek Helio G99 Ultra",
+      "ram": "8GB",
+      "storage": "256GB",
+      "battery": "5100mAh",
+      "camera": "200MP + 8MP + 2MP"
+    },
+    "image_url": "/static/products/redmi-note-13-pro.jpg",
+    "rating": 4.4,
+    "reviews_count": 2543
+  },
+  {
+    "id": "PROD-009",
+    "name": "MacBook Air M3 15\" 256GB",
+    "description": "O MacBook Air com chip M3 oferece desempenho excepcional sem ventoinha, em um corpo incrivelmente fino e leve. A tela Liquid Retina de 15.3 polegadas é ideal para produtividade e entretenimento, com até 18 horas de bateria. Perfeito para profissionais e estudantes que precisam de portabilidade sem abrir mão de performance.",
+    "category": "notebooks",
+    "brand": "Apple",
+    "price": 9499.90,
+    "stock": 25,
+    "specs": {
+      "display": "15.3\" Liquid Retina IPS 2880x1864",
+      "processor": "Apple M3 8-core CPU / 10-core GPU",
+      "ram": "8GB Unified Memory",
+      "storage": "256GB SSD",
+      "battery": "Até 18 horas"
+    },
+    "image_url": "/static/products/macbook-air-m3-15.jpg",
+    "rating": 4.9,
+    "reviews_count": 876
+  },
+  {
+    "id": "PROD-010",
+    "name": "Dell XPS 15 9530 Core i7 512GB",
+    "description": "O Dell XPS 15 combina uma tela InfinityEdge OLED 3.5K deslumbrante com o poder do Intel Core i7-13700H e placa de vídeo NVIDIA RTX 4050. Ideal para criadores de conteúdo, editores de vídeo e desenvolvedores que exigem performance gráfica avançada. Construção premium em alumínio com teclado retroiluminado.",
+    "category": "notebooks",
+    "brand": "Dell",
+    "price": 11999.90,
+    "stock": 15,
+    "specs": {
+      "display": "15.6\" OLED 3.5K 3456x2160 Touch",
+      "processor": "Intel Core i7-13700H",
+      "ram": "16GB DDR5",
+      "storage": "512GB NVMe SSD",
+      "battery": "Até 13 horas"
+    },
+    "image_url": "/static/products/dell-xps-15.jpg",
+    "rating": 4.6,
+    "reviews_count": 543
+  },
+  {
+    "id": "PROD-011",
+    "name": "Lenovo ThinkPad X1 Carbon Gen 11 512GB",
+    "description": "O ThinkPad X1 Carbon é referência em notebooks corporativos, com construção em fibra de carbono ultra leve e certificação militar MIL-STD-810H. O teclado ThinkPad é reconhecido como o melhor do mercado para digitação prolongada. Equipado com Intel Core i7 de 13ª geração, leitor de impressão digital e câmera IR para Windows Hello.",
+    "category": "notebooks",
+    "brand": "Lenovo",
+    "price": 10499.90,
+    "stock": 18,
+    "specs": {
+      "display": "14\" IPS WUXGA 2240x1400 Anti-reflexo",
+      "processor": "Intel Core i7-1365U",
+      "ram": "16GB LPDDR5",
+      "storage": "512GB NVMe SSD",
+      "battery": "Até 15 horas"
+    },
+    "image_url": "/static/products/thinkpad-x1-carbon.jpg",
+    "rating": 4.7,
+    "reviews_count": 421
+  },
+  {
+    "id": "PROD-012",
+    "name": "ASUS ROG Strix G16 RTX 4060 512GB",
+    "description": "O ROG Strix G16 é um notebook gamer poderoso com tela de 165Hz e placa de vídeo NVIDIA GeForce RTX 4060 para rodar os jogos mais exigentes com ray tracing. O sistema de refrigeração Intelligent Cooling mantém as temperaturas baixas mesmo em sessões prolongadas. Teclado RGB per-key e alto-falantes com Dolby Atmos completam a experiência gamer.",
+    "category": "notebooks",
+    "brand": "ASUS",
+    "price": 8999.90,
+    "stock": 20,
+    "specs": {
+      "display": "16\" IPS FHD+ 1920x1200 165Hz",
+      "processor": "Intel Core i7-13650HX",
+      "ram": "16GB DDR5",
+      "storage": "512GB NVMe SSD",
+      "battery": "Até 8 horas"
+    },
+    "image_url": "/static/products/rog-strix-g16.jpg",
+    "rating": 4.5,
+    "reviews_count": 389
+  },
+  {
+    "id": "PROD-013",
+    "name": "Samsung Galaxy Book3 Pro 360 512GB",
+    "description": "O Galaxy Book3 Pro 360 é um notebook 2-em-1 com tela AMOLED touch de 16 polegadas e suporte à S Pen para anotações e desenhos. Integração perfeita com o ecossistema Samsung via Quick Share e Second Screen. Processador Intel Core i7 de 13ª geração com design ultra fino em alumínio de apenas 1.66kg.",
+    "category": "notebooks",
+    "brand": "Samsung",
+    "price": 9799.90,
+    "stock": 12,
+    "specs": {
+      "display": "16\" Dynamic AMOLED 2X 2880x1800 Touch",
+      "processor": "Intel Core i7-1360P",
+      "ram": "16GB LPDDR5",
+      "storage": "512GB NVMe SSD",
+      "battery": "Até 14 horas"
+    },
+    "image_url": "/static/products/galaxy-book3-pro-360.jpg",
+    "rating": 4.5,
+    "reviews_count": 267
+  },
+  {
+    "id": "PROD-014",
+    "name": "Acer Nitro 5 AN515 RTX 4050 512GB",
+    "description": "O Acer Nitro 5 é a porta de entrada ideal para o mundo gamer, oferecendo a RTX 4050 a um preço competitivo. Tela IPS de 144Hz garante jogabilidade fluida em títulos como Fortnite, Valorant e CS2. Sistema de ventilação CoolBoost com duas ventoinhas e quatro exaustores para manter a performance estável durante horas de jogo.",
+    "category": "notebooks",
+    "brand": "Acer",
+    "price": 5999.90,
+    "stock": 35,
+    "specs": {
+      "display": "15.6\" IPS FHD 1920x1080 144Hz",
+      "processor": "Intel Core i5-13420H",
+      "ram": "16GB DDR5",
+      "storage": "512GB NVMe SSD",
+      "battery": "Até 6 horas"
+    },
+    "image_url": "/static/products/acer-nitro-5.jpg",
+    "rating": 4.3,
+    "reviews_count": 1102
+  },
+  {
+    "id": "PROD-015",
+    "name": "MacBook Pro M3 Pro 14\" 512GB",
+    "description": "O MacBook Pro com chip M3 Pro é a escolha definitiva para profissionais de criação, com 12 núcleos de CPU e 18 de GPU. A tela Liquid Retina XDR de 14 polegadas oferece brilho de até 1600 nits para conteúdo HDR, ideal para edição de vídeo e fotografia. Bateria que dura até 17 horas e conectividade completa com HDMI, SD card e MagSafe.",
+    "category": "notebooks",
+    "brand": "Apple",
+    "price": 14999.90,
+    "stock": 10,
+    "specs": {
+      "display": "14.2\" Liquid Retina XDR 3024x1964",
+      "processor": "Apple M3 Pro 12-core CPU / 18-core GPU",
+      "ram": "18GB Unified Memory",
+      "storage": "512GB SSD",
+      "battery": "Até 17 horas"
+    },
+    "image_url": "/static/products/macbook-pro-m3-pro-14.jpg",
+    "rating": 4.9,
+    "reviews_count": 654
+  },
+  {
+    "id": "PROD-016",
+    "name": "Apple AirPods Pro 2ª Geração USB-C",
+    "description": "Os AirPods Pro de 2ª geração oferecem cancelamento de ruído ativo 2x mais eficiente, modo de transparência adaptativo e áudio espacial personalizado. O estojo de carregamento com USB-C conta com alto-falante embutido para localização via Find My. Resistência à água e suor IPX4 para uso durante exercícios.",
+    "category": "acessorios",
+    "brand": "Apple",
+    "price": 1899.90,
+    "stock": 75,
+    "specs": {
+      "tipo": "In-ear True Wireless",
+      "driver": "Driver personalizado Apple de alta excursão",
+      "cancelamento_ruido": "Ativo com modo Transparência Adaptativo",
+      "bateria_fones": "Até 6 horas (ANC ativado)",
+      "bateria_estojo": "Até 30 horas total",
+      "conectividade": "Bluetooth 5.3, chip H2"
+    },
+    "image_url": "/static/products/airpods-pro-2.jpg",
+    "rating": 4.8,
+    "reviews_count": 3456
+  },
+  {
+    "id": "PROD-017",
+    "name": "Carregador USB-C 65W GaN Baseus",
+    "description": "Carregador compacto com tecnologia GaN III que oferece 65W de potência em um corpo 50% menor que carregadores tradicionais. Possui 2 portas USB-C e 1 USB-A, permitindo carregar notebook, celular e acessório simultaneamente. Compatível com Power Delivery 3.0 e Quick Charge 4+ para carregamento ultrarrápido.",
+    "category": "acessorios",
+    "brand": "Baseus",
+    "price": 189.90,
+    "stock": 200,
+    "specs": {
+      "tipo": "Carregador de parede GaN",
+      "potencia_maxima": "65W",
+      "portas": "2x USB-C + 1x USB-A",
+      "protocolos": "PD 3.0, QC 4+, PPS, AFC",
+      "entrada": "100-240V~50/60Hz",
+      "peso": "120g"
+    },
+    "image_url": "/static/products/carregador-baseus-65w.jpg",
+    "rating": 4.6,
+    "reviews_count": 1823
+  },
+  {
+    "id": "PROD-018",
+    "name": "Capa MagSafe iPhone 15 Pro Silicone",
+    "description": "Capa oficial de silicone com suporte a MagSafe para fixação magnética precisa de acessórios e carregadores sem fio. Revestimento interno em microfibra que protege o aparelho contra arranhões, e exterior em silicone macio com toque agradável. Disponível na cor Azul Tempestade com botões em alumínio anodizado.",
+    "category": "acessorios",
+    "brand": "Apple",
+    "price": 399.90,
+    "stock": 150,
+    "specs": {
+      "tipo": "Capa protetora de silicone",
+      "compatibilidade": "iPhone 15 Pro",
+      "material": "Silicone com interior em microfibra",
+      "magsafe": "Sim, magnetos integrados",
+      "protecao": "Bordas elevadas para câmera e tela",
+      "cor": "Azul Tempestade"
+    },
+    "image_url": "/static/products/capa-magsafe-iphone15pro.jpg",
+    "rating": 4.4,
+    "reviews_count": 892
+  },
+  {
+    "id": "PROD-019",
+    "name": "Samsung Galaxy Buds3 Pro",
+    "description": "Os Galaxy Buds3 Pro apresentam design blade renovado com cancelamento de ruído inteligente que se adapta ao ambiente automaticamente. Áudio Hi-Fi de 24 bits com codec SSC e driver de 2 vias para som rico e detalhado. Integração com Galaxy AI para tradução em tempo real durante chamadas e controle por gestos.",
+    "category": "acessorios",
+    "brand": "Samsung",
+    "price": 1299.90,
+    "stock": 65,
+    "specs": {
+      "tipo": "In-ear True Wireless",
+      "driver": "2 vias (Planar + Dinâmico)",
+      "cancelamento_ruido": "ANC Inteligente Adaptativo",
+      "bateria_fones": "Até 7 horas (ANC ativado)",
+      "bateria_estojo": "Até 30 horas total",
+      "conectividade": "Bluetooth 5.4, codec SSC"
+    },
+    "image_url": "/static/products/galaxy-buds3-pro.jpg",
+    "rating": 4.5,
+    "reviews_count": 678
+  },
+  {
+    "id": "PROD-020",
+    "name": "Mousepad Gamer HyperX Pulsefire Mat XL",
+    "description": "Mousepad gamer de tamanho extra grande com superfície de tecido otimizada para sensores ópticos, garantindo rastreamento preciso em qualquer DPI. Base de borracha antiderrapante que permanece firme mesmo em movimentos bruscos. Bordas costuradas para maior durabilidade e dimensões generosas que acomodam teclado e mouse.",
+    "category": "acessorios",
+    "brand": "HyperX",
+    "price": 149.90,
+    "stock": 90,
+    "specs": {
+      "tipo": "Mousepad de tecido",
+      "dimensoes": "900mm x 420mm x 4mm",
+      "superficie": "Tecido otimizado para sensores ópticos",
+      "base": "Borracha natural antiderrapante",
+      "bordas": "Costuradas anti-desgaste",
+      "lavavel": "Sim, lavagem manual"
+    },
+    "image_url": "/static/products/hyperx-mousepad-xl.jpg",
+    "rating": 4.7,
+    "reviews_count": 2104
+  },
+  {
+    "id": "PROD-021",
+    "name": "Cabo USB-C para USB-C Anker 240W 2m",
+    "description": "Cabo USB-C de alta performance com suporte a até 240W de carregamento (USB PD 3.1 EPR), ideal para notebooks e dispositivos que exigem alta potência. Transferência de dados a 480Mbps e revestimento em nylon trançado para resistência a mais de 35.000 dobras. Compatível com todos os dispositivos USB-C do mercado.",
+    "category": "acessorios",
+    "brand": "Anker",
+    "price": 89.90,
+    "stock": 300,
+    "specs": {
+      "tipo": "Cabo USB-C para USB-C",
+      "comprimento": "2 metros",
+      "potencia": "Até 240W (48V/5A)",
+      "transferencia": "USB 2.0 - 480Mbps",
+      "material": "Nylon trançado duplo",
+      "certificacao": "USB-IF Certified"
+    },
+    "image_url": "/static/products/cabo-anker-usbc-240w.jpg",
+    "rating": 4.7,
+    "reviews_count": 4521
+  },
+  {
+    "id": "PROD-022",
+    "name": "iPad Air M2 11\" 128GB Wi-Fi",
+    "description": "O iPad Air com chip M2 oferece desempenho de notebook em formato tablet, perfeito para criação de conteúdo, estudos e entretenimento. A tela Liquid Retina de 11 polegadas com True Tone e P3 wide color reproduz cores com precisão profissional. Compatível com Apple Pencil Pro e Magic Keyboard para transformar em estação de trabalho completa.",
+    "category": "tablets",
+    "brand": "Apple",
+    "price": 5499.90,
+    "stock": 30,
+    "specs": {
+      "display": "11\" Liquid Retina IPS 2360x1640",
+      "processor": "Apple M2 8-core CPU / 9-core GPU",
+      "ram": "8GB Unified Memory",
+      "storage": "128GB",
+      "battery": "Até 10 horas",
+      "camera": "12MP traseira + 12MP frontal ultra-angular"
+    },
+    "image_url": "/static/products/ipad-air-m2.jpg",
+    "rating": 4.8,
+    "reviews_count": 934
+  },
+  {
+    "id": "PROD-023",
+    "name": "Samsung Galaxy Tab S9 FE 128GB Wi-Fi",
+    "description": "O Galaxy Tab S9 FE é um tablet versátil com tela TFT de 10.9 polegadas e S Pen inclusa na caixa para anotações e desenhos. Certificação IP68 contra água e poeira permite uso em diversos ambientes sem preocupações. Processador Exynos 1380 e bateria de 8000mAh garantem produtividade durante todo o dia.",
+    "category": "tablets",
+    "brand": "Samsung",
+    "price": 2899.90,
+    "stock": 40,
+    "specs": {
+      "display": "10.9\" TFT LCD 2304x1440 90Hz",
+      "processor": "Samsung Exynos 1380",
+      "ram": "6GB",
+      "storage": "128GB + microSD até 1TB",
+      "battery": "8000mAh, até 13 horas",
+      "camera": "8MP traseira + 12MP frontal"
+    },
+    "image_url": "/static/products/galaxy-tab-s9-fe.jpg",
+    "rating": 4.4,
+    "reviews_count": 712
+  },
+  {
+    "id": "PROD-024",
+    "name": "Microsoft Surface Pro 9 Core i7 256GB",
+    "description": "O Surface Pro 9 é o tablet 2-em-1 mais versátil do mercado, rodando Windows 11 completo com o poder do Intel Core i7 de 12ª geração. A tela PixelSense Flow de 13 polegadas com 120Hz oferece escrita natural com Surface Slim Pen 2. Perfeito para profissionais que precisam da flexibilidade de um tablet com a potência de um notebook.",
+    "category": "tablets",
+    "brand": "Microsoft",
+    "price": 8999.90,
+    "stock": 14,
+    "specs": {
+      "display": "13\" PixelSense Flow 2880x1920 120Hz Touch",
+      "processor": "Intel Core i7-1255U",
+      "ram": "16GB LPDDR5",
+      "storage": "256GB SSD removível",
+      "battery": "Até 15.5 horas",
+      "camera": "10MP traseira + 5MP frontal Windows Hello"
+    },
+    "image_url": "/static/products/surface-pro-9.jpg",
+    "rating": 4.5,
+    "reviews_count": 389
+  },
+  {
+    "id": "PROD-025",
+    "name": "iPad 10ª Geração 64GB Wi-Fi",
+    "description": "O iPad de 10ª geração é a opção ideal para quem busca um tablet Apple acessível e completo. Com tela Liquid Retina de 10.9 polegadas, chip A14 Bionic e suporte ao Apple Pencil, atende perfeitamente a estudos, streaming e navegação. Conector USB-C e câmera frontal paisagem para chamadas de vídeo mais naturais.",
+    "category": "tablets",
+    "brand": "Apple",
+    "price": 3499.90,
+    "stock": 50,
+    "specs": {
+      "display": "10.9\" Liquid Retina IPS 2360x1640",
+      "processor": "Apple A14 Bionic",
+      "ram": "4GB",
+      "storage": "64GB",
+      "battery": "Até 10 horas",
+      "camera": "12MP traseira + 12MP frontal paisagem"
+    },
+    "image_url": "/static/products/ipad-10.jpg",
+    "rating": 4.6,
+    "reviews_count": 2876
+  },
+  {
+    "id": "PROD-026",
+    "name": "Lenovo Tab P12 128GB Wi-Fi",
+    "description": "O Lenovo Tab P12 oferece uma tela IPS de 12.7 polegadas com resolução 2K, perfeita para consumir conteúdo multimídia e trabalhar com documentos. Acompanha a Lenovo Tab Pen Plus na caixa para anotações e desenhos com 4096 níveis de pressão. Quatro alto-falantes JBL com Dolby Atmos proporcionam imersão sonora excepcional.",
+    "category": "tablets",
+    "brand": "Lenovo",
+    "price": 2199.90,
+    "stock": 28,
+    "specs": {
+      "display": "12.7\" IPS LCD 2944x1840 60Hz",
+      "processor": "MediaTek Dimensity 7050",
+      "ram": "8GB",
+      "storage": "128GB + microSD até 1TB",
+      "battery": "10200mAh, até 15 horas",
+      "camera": "13MP traseira + 8MP frontal"
+    },
+    "image_url": "/static/products/lenovo-tab-p12.jpg",
+    "rating": 4.3,
+    "reviews_count": 345
+  },
+  {
+    "id": "PROD-027",
+    "name": "Amazon Echo Dot 5ª Geração",
+    "description": "O Echo Dot de 5ª geração é o alto-falante inteligente mais popular da Amazon, com som melhorado e Alexa integrada para controlar sua casa inteligente por voz. Sensor de temperatura ambiente permite automações climáticas, e o design em tecido sustentável combina com qualquer ambiente. Ideal como ponto de entrada para casas inteligentes.",
+    "category": "smart_home",
+    "brand": "Amazon",
+    "price": 349.90,
+    "stock": 150,
+    "specs": {
+      "tipo": "Alto-falante inteligente",
+      "assistente": "Amazon Alexa",
+      "alto_falante": "Driver de 44mm direcional frontal",
+      "conectividade": "Wi-Fi 5, Bluetooth 5.0",
+      "sensores": "Temperatura ambiente",
+      "compatibilidade": "Zigbee, Matter, Alexa Smart Home"
+    },
+    "image_url": "/static/products/echo-dot-5.jpg",
+    "rating": 4.6,
+    "reviews_count": 5432
+  },
+  {
+    "id": "PROD-028",
+    "name": "Google Nest Hub 2ª Geração",
+    "description": "O Google Nest Hub combina um display de 7 polegadas com o Google Assistente para ser o centro de controle da sua casa inteligente. Monitora seu sono com tecnologia de radar Soli sem necessidade de wearable, e exibe receitas, vídeos do YouTube e fotos do Google Fotos. Funciona como porta-retrato digital inteligente quando não está em uso.",
+    "category": "smart_home",
+    "brand": "Google",
+    "price": 699.90,
+    "stock": 45,
+    "specs": {
+      "tipo": "Smart Display",
+      "assistente": "Google Assistente",
+      "display": "7\" LCD Touch 1024x600",
+      "alto_falante": "Driver de 43.5mm full-range",
+      "conectividade": "Wi-Fi 5, Bluetooth 5.0, Thread",
+      "compatibilidade": "Google Home, Matter, Chromecast built-in"
+    },
+    "image_url": "/static/products/google-nest-hub-2.jpg",
+    "rating": 4.5,
+    "reviews_count": 1876
+  },
+  {
+    "id": "PROD-029",
+    "name": "Ring Video Doorbell 4",
+    "description": "A Ring Video Doorbell 4 é uma campainha inteligente com vídeo HD 1080p, visão noturna colorida e detecção de movimento avançada com Pre-Roll em 4 segundos. Permite ver, ouvir e conversar com visitantes de qualquer lugar pelo app Ring. Funciona com bateria recarregável ou com fiação existente, e integra com Alexa para anúncios automáticos.",
+    "category": "smart_home",
+    "brand": "Ring",
+    "price": 899.90,
+    "stock": 35,
+    "specs": {
+      "tipo": "Campainha inteligente com vídeo",
+      "resolucao": "1080p HD com HDR",
+      "campo_visao": "160° horizontal, 84° vertical",
+      "visao_noturna": "Colorida com LEDs infravermelhos",
+      "alimentacao": "Bateria recarregável ou fiação",
+      "conectividade": "Wi-Fi 6, Bluetooth"
+    },
+    "image_url": "/static/products/ring-doorbell-4.jpg",
+    "rating": 4.4,
+    "reviews_count": 923
+  },
+  {
+    "id": "PROD-030",
+    "name": "Xiaomi Smart Lamp 2 Desk",
+    "description": "A Xiaomi Smart Lamp 2 é uma luminária de mesa inteligente com controle de temperatura de cor de 2700K a 6500K e brilho ajustável para proteger a visão durante leitura e trabalho. Compatível com Mi Home, Google Home e Alexa para controle por voz e automações. Design minimalista premiado com certificação de proteção ocular TUV Rheinland.",
+    "category": "smart_home",
+    "brand": "Xiaomi",
+    "price": 299.90,
+    "stock": 60,
+    "specs": {
+      "tipo": "Luminária de mesa inteligente",
+      "luminosidade": "Até 450 lúmens",
+      "temperatura_cor": "2700K - 6500K ajustável",
+      "potencia": "12W",
+      "conectividade": "Wi-Fi 2.4GHz, Bluetooth",
+      "compatibilidade": "Mi Home, Google Home, Alexa, HomeKit"
+    },
+    "image_url": "/static/products/xiaomi-smart-lamp-2.jpg",
+    "rating": 4.5,
+    "reviews_count": 1234
+  }
+]

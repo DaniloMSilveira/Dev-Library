@@ -1,0 +1,123 @@
+# Projeto Desenvolvido na Data Science Academy
+#
+# Docker Compose — Orquestração dos 4 serviços da aplicação
+#
+# Este arquivo define a infraestrutura completa do projeto, composta por quatro
+# containers independentes que se comunicam via rede interna Docker.
+#
+# Ordem de inicialização:
+#   1. ml-model      → Treina o modelo e encerra
+#   2. api           → Aguarda o modelo, inicia a API REST (porta 8000)
+#   3. webapp        → Aguarda a API estar saudável, inicia o Streamlit (porta 8501)
+#   4. datascience   → Jupyter Notebook para EDA e modelagem (porta 8888)
+#
+# Comando para subir: docker compose up --build
+
+name: dsaprojeto1
+
+services:
+
+  # ---------------------------------------------------------------------------
+  # Serviço 1: Modelo de Machine Learning
+  # Executa o script de treinamento e salva o artefato (.joblib) no volume
+  # compartilhado. Após a conclusão do treinamento, o container encerra.
+  # ---------------------------------------------------------------------------
+  ml-model:
+    build: ./ml-model
+    volumes:
+      # Volume nomeado para compartilhar o artefato do modelo com a API
+      - model-artifacts:/app/models
+    networks:
+      - ml-network
+
+  # ---------------------------------------------------------------------------
+  # Serviço 2: API REST (FastAPI)
+  # Serve os endpoints de predição, health check e informações do modelo.
+  # O modelo serializado é montado como volume somente-leitura (read-only).
+  # ---------------------------------------------------------------------------
+  api:
+    build: ./api
+    ports:
+      # Mapeia porta 8000 do container para porta 8000 do host
+      - "8000:8000"
+    volumes:
+      # Monta o volume do modelo em modo somente-leitura (:ro)
+      # Isso garante que a API não modifica o artefato do modelo
+      - model-artifacts:/app/models:ro
+    environment:
+      # Caminho interno do container onde o modelo serializado está disponível
+      - MODEL_PATH=/app/models/churn_model.joblib
+      # Nível de log configurável (DEBUG, INFO, WARNING, ERROR)
+      # Usa valor do .env ou INFO como padrão
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      ml-model:
+        # Só inicia a API após o treinamento do modelo concluir com sucesso
+        condition: service_completed_successfully
+    healthcheck:
+      # Verificação periódica de saúde da API via endpoint dedicado
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s      # Intervalo entre verificações
+      timeout: 10s        # Tempo máximo de espera por resposta
+      retries: 3          # Tentativas antes de considerar "unhealthy"
+      start_period: 15s   # Tempo de espera inicial antes da primeira verificação
+    networks:
+      - ml-network
+    # Reinicia automaticamente em caso de falha (exceto se parado manualmente)
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Serviço 3: Aplicação Web (Streamlit)
+  # Interface gráfica para o usuário final. Comunica-se com a API via HTTP
+  # interno usando o nome do serviço "api" como hostname (DNS do Docker).
+  # ---------------------------------------------------------------------------
+  webapp:
+    build: ./webapp
+    ports:
+      # Mapeia porta 8501 do container para porta 8501 do host
+      - "8501:8501"
+    environment:
+      # URL interna da API — usa o nome do serviço "api" como hostname
+      # O Docker Compose resolve "api" para o IP do container automaticamente
+      - API_URL=http://api:8000
+    depends_on:
+      api:
+        # Só inicia o webapp após a API estar saudável (health check passando)
+        condition: service_healthy
+    healthcheck:
+      # Endpoint nativo de saúde do Streamlit
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - ml-network
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Serviço 4: Jupyter Notebook (Data Science / EDA)
+  # Disponibiliza o notebook de Análise Exploratória de Dados e Modelagem
+  # na porta 8888. Independente dos demais serviços.
+  # ---------------------------------------------------------------------------
+  datascience:
+    build:
+      context: .
+      dockerfile: datascience/Dockerfile
+    ports:
+      # Mapeia porta 8888 do container para porta 8888 do host
+      - "8888:8888"
+    networks:
+      - ml-network
+    restart: unless-stopped
+
+# Volume nomeado para compartilhar artefatos entre os serviços ml-model e api.
+# O ml-model escreve o modelo treinado e a api lê o modelo para inferência.
+volumes:
+  model-artifacts:
+
+# Rede bridge isolada para comunicação interna entre os containers.
+# Containers na mesma rede se comunicam pelo nome do serviço (ex: http://api:8000).
+networks:
+  ml-network:
+    driver: bridge

@@ -1,0 +1,358 @@
+[
+  {
+    "id": "FAQ-001",
+    "question": "Qual o prazo de entrega dos pedidos?",
+    "answer": "O prazo de entrega da Tech Store Brasil varia de acordo com a sua localidade. Para capitais e regioes metropolitanas, o prazo medio e de 3 a 7 dias uteis. Para cidades do interior, o prazo pode variar de 7 a 15 dias uteis. Apos a confirmacao do pagamento, voce recebera um e-mail com o codigo de rastreamento para acompanhar o envio em tempo real. Em periodos de alta demanda, como Black Friday e Natal, os prazos podem sofrer acrescimo de ate 5 dias uteis.",
+    "category": "entregas_frete",
+    "keywords": [
+      "prazo",
+      "entrega",
+      "dias",
+      "envio",
+      "tempo",
+      "demora"
+    ]
+  },
+  {
+    "id": "FAQ-002",
+    "question": "Para quais regioes do Brasil voces entregam?",
+    "answer": "A Tech Store Brasil realiza entregas para todos os 26 estados brasileiros e o Distrito Federal. Atendemos capitais, regioes metropolitanas e cidades do interior. Para localidades muito remotas ou de dificil acesso, como algumas areas da regiao Norte, pode haver um acrescimo no prazo e no valor do frete. Trabalhamos com multiplas transportadoras para garantir a melhor cobertura possivel em todo o territorio nacional. Basta informar seu CEP no carrinho de compras para verificar a disponibilidade e o custo do envio.",
+    "category": "entregas_frete",
+    "keywords": [
+      "regiao",
+      "estados",
+      "cobertura",
+      "localidade",
+      "cep",
+      "area"
+    ]
+  },
+  {
+    "id": "FAQ-003",
+    "question": "Como faco para rastrear meu pedido?",
+    "answer": "Apos a postagem do seu pedido, voce recebera um e-mail automatico com o codigo de rastreamento e o link direto para acompanhamento. Voce tambem pode rastrear seu pedido acessando a area 'Meus Pedidos' no site da Tech Store Brasil, onde exibimos o status atualizado em tempo real. O codigo de rastreamento e gerado em ate 48 horas apos a confirmacao do pagamento. Caso nao receba o e-mail, verifique sua caixa de spam ou entre em contato com nosso suporte pelo chat.",
+    "category": "entregas_frete",
+    "keywords": [
+      "rastrear",
+      "rastreamento",
+      "rastreio",
+      "codigo",
+      "acompanhar",
+      "status"
+    ]
+  },
+  {
+    "id": "FAQ-004",
+    "question": "Voces oferecem frete gratis?",
+    "answer": "Sim, a Tech Store Brasil oferece frete gratis para compras acima de R$ 299,00 destinadas as regioes Sul e Sudeste. Para as regioes Centro-Oeste, Norte e Nordeste, o frete gratis e aplicado em compras acima de R$ 499,00. Alem disso, frequentemente realizamos promocoes especiais com frete gratis para todo o Brasil em categorias selecionadas. Assinantes do programa TechStore Plus tambem contam com frete gratis ilimitado, independentemente do valor da compra. Fique atento as nossas campanhas na pagina inicial do site.",
+    "category": "entregas_frete",
+    "keywords": [
+      "frete",
+      "gratis",
+      "gratuito",
+      "valor",
+      "minimo",
+      "promocao"
+    ]
+  },
+  {
+    "id": "FAQ-005",
+    "question": "Quais transportadoras a Tech Store Brasil utiliza?",
+    "answer": "Trabalhamos com as principais transportadoras do mercado, incluindo Correios (PAC e Sedex), Jadlog, Total Express e Loggi. A escolha da transportadora e feita automaticamente pelo nosso sistema, que seleciona a melhor opcao em termos de custo-beneficio e prazo para a sua regiao. No momento da compra, voce podera visualizar as opcoes disponiveis com seus respectivos prazos e valores. Para produtos de grande porte, como televisores e monitores acima de 32 polegadas, utilizamos transportadoras especializadas em cargas frageis.",
+    "category": "entregas_frete",
+    "keywords": [
+      "transportadora",
+      "correios",
+      "sedex",
+      "pac",
+      "jadlog",
+      "envio"
+    ]
+  },
+  {
+    "id": "FAQ-006",
+    "question": "Meu pedido esta atrasado. O que devo fazer?",
+    "answer": "Se o prazo estimado de entrega ja foi ultrapassado, primeiramente verifique o status do rastreamento na area 'Meus Pedidos' ou diretamente no site da transportadora. Atrasos podem ocorrer por motivos como tentativa de entrega sem sucesso, endereco incorreto ou condicoes climaticas adversas. Caso o rastreamento nao apresente atualizacao ha mais de 5 dias uteis, entre em contato com nosso suporte pelo chat, e-mail (suporte@techstorebrasil.com.br) ou telefone (0800-123-4567). Nossa equipe ira abrir uma investigacao junto a transportadora e retornara com uma solucao em ate 48 horas. Em caso de extravio confirmado, realizamos o reenvio do produto ou o reembolso integral.",
+    "category": "entregas_frete",
+    "keywords": [
+      "atraso",
+      "atrasado",
+      "demora",
+      "nao chegou",
+      "extravio",
+      "problema"
+    ]
+  },
+  {
+    "id": "FAQ-007",
+    "question": "Qual o prazo para solicitar troca ou devolucao?",
+    "answer": "De acordo com o Codigo de Defesa do Consumidor, voce tem ate 7 dias corridos apos o recebimento do produto para exercer o direito de arrependimento em compras online. Alem disso, a Tech Store Brasil oferece um prazo estendido de 30 dias corridos para trocas e devolucoes, contados a partir da data de recebimento. Para produtos com defeito de fabricacao, o prazo e de 90 dias. Basta acessar a area 'Meus Pedidos', selecionar o produto e clicar em 'Solicitar Troca/Devolucao'. O produto deve estar em sua embalagem original, com todos os acessorios e nota fiscal.",
+    "category": "trocas_devolucoes",
+    "keywords": [
+      "prazo",
+      "troca",
+      "devolucao",
+      "dias",
+      "arrependimento",
+      "devolver"
+    ]
+  },
+  {
+    "id": "FAQ-008",
+    "question": "Quais as condicoes para realizar uma troca ou devolucao?",
+    "answer": "Para que a troca ou devolucao seja aceita, o produto deve estar em perfeitas condicoes, sem sinais de uso, com todos os acessorios, manuais, brindes e embalagem original intacta. A nota fiscal deve acompanhar o produto. Produtos de higiene pessoal, fones de ouvido intra-auriculares e softwares com lacre violado nao sao elegíveis para troca por arrependimento, apenas por defeito comprovado. O frete de devolucao e por conta da Tech Store Brasil quando a troca ou devolucao ocorre por defeito de fabricacao ou erro no envio. Em caso de arrependimento, o frete de devolucao pode ser descontado do reembolso.",
+    "category": "trocas_devolucoes",
+    "keywords": [
+      "condicao",
+      "requisito",
+      "embalagem",
+      "acessorio",
+      "nota fiscal",
+      "regra"
+    ]
+  },
+  {
+    "id": "FAQ-009",
+    "question": "Como funciona o processo de troca ou devolucao?",
+    "answer": "O processo e simples e pode ser iniciado diretamente pelo site. Acesse 'Meus Pedidos', selecione o pedido e clique em 'Solicitar Troca/Devolucao'. Escolha o motivo e, se aplicavel, anexe fotos do produto. Nossa equipe analisara a solicitacao em ate 2 dias uteis e enviara as instrucoes de postagem por e-mail, incluindo a etiqueta de envio pre-paga quando aplicavel. Apos recebermos e inspecionarmos o produto em nosso centro de distribuicao, a troca ou reembolso sera processado em ate 5 dias uteis. Voce pode acompanhar todo o andamento pela area 'Meus Pedidos'.",
+    "category": "trocas_devolucoes",
+    "keywords": [
+      "processo",
+      "como trocar",
+      "etapas",
+      "procedimento",
+      "solicitar",
+      "passo"
+    ]
+  },
+  {
+    "id": "FAQ-010",
+    "question": "Como funciona o reembolso apos uma devolucao?",
+    "answer": "Apos recebermos e aprovarmos a devolucao do produto, o reembolso e processado de acordo com a forma de pagamento original. Para compras no cartao de credito, o estorno aparecera na fatura em ate 2 faturas subsequentes, dependendo da data de fechamento do seu cartao. Para pagamentos via Pix ou boleto bancario, o reembolso sera depositado na conta bancaria informada em ate 10 dias uteis. Voce tambem pode optar por receber o valor como credito na loja, que fica disponivel imediatamente para novas compras. O reembolso sempre inclui o valor total do produto e, quando aplicavel, o valor do frete.",
+    "category": "trocas_devolucoes",
+    "keywords": [
+      "reembolso",
+      "estorno",
+      "dinheiro",
+      "credito",
+      "devolver",
+      "valor"
+    ]
+  },
+  {
+    "id": "FAQ-011",
+    "question": "Recebi um produto com defeito. O que devo fazer?",
+    "answer": "Se voce recebeu um produto com defeito, entre em contato conosco o mais rapido possivel. Acesse 'Meus Pedidos', selecione o produto e clique em 'Reportar Problema'. Descreva o defeito detalhadamente e anexe fotos ou videos que comprovem o problema. Nossa equipe tecnica analisara o caso em ate 48 horas. Para defeitos aparentes, providenciaremos a troca imediata ou reembolso integral, incluindo o frete de devolucao por nossa conta. Para defeitos funcionais que necessitem analise tecnica, o produto podera ser encaminhado a assistencia tecnica autorizada. O prazo legal para reclamacao por defeito e de 90 dias para produtos nao duraveis e 90 dias para produtos duraveis, contados a partir da constatacao do defeito.",
+    "category": "trocas_devolucoes",
+    "keywords": [
+      "defeito",
+      "problema",
+      "danificado",
+      "nao funciona",
+      "quebrado",
+      "avariado"
+    ]
+  },
+  {
+    "id": "FAQ-012",
+    "question": "Quais formas de pagamento sao aceitas?",
+    "answer": "A Tech Store Brasil aceita diversas formas de pagamento para sua comodidade. Trabalhamos com cartoes de credito das bandeiras Visa, Mastercard, Elo, American Express e Hipercard. Tambem aceitamos cartao de debito, boleto bancario, Pix e transferencia bancaria. Para pagamentos via cartao de credito, oferecemos parcelamento em ate 12x. Pagamentos via Pix e boleto contam com desconto especial de 5% sobre o valor total do pedido. Todas as transacoes sao processadas em ambiente seguro com certificacao PCI-DSS.",
+    "category": "pagamento",
+    "keywords": [
+      "pagamento",
+      "forma",
+      "metodo",
+      "cartao",
+      "aceitar",
+      "pagar"
+    ]
+  },
+  {
+    "id": "FAQ-013",
+    "question": "Como funciona o parcelamento no cartao de credito?",
+    "answer": "Oferecemos parcelamento em ate 12x no cartao de credito para compras acima de R$ 100,00. O parcelamento em ate 3x e sem juros para todos os produtos. De 4x a 12x, aplicamos uma taxa de juros de 1,99% ao mes, e o valor total parcelado sera exibido antes da confirmacao da compra. Para compras acima de R$ 1.000,00, oferecemos condicoes especiais de parcelamento em ate 6x sem juros em campanhas selecionadas. O valor minimo de cada parcela e de R$ 30,00. Aceitamos dois cartoes de credito na mesma compra, permitindo dividir o valor entre eles.",
+    "category": "pagamento",
+    "keywords": [
+      "parcelamento",
+      "parcela",
+      "juros",
+      "vezes",
+      "cartao",
+      "credito",
+      "dividir"
+    ]
+  },
+  {
+    "id": "FAQ-014",
+    "question": "Como funciona o pagamento por boleto bancario?",
+    "answer": "O boleto bancario e gerado automaticamente apos a finalizacao do pedido e tem vencimento em 3 dias uteis. Voce pode paga-lo em qualquer agencia bancaria, casa loterica, aplicativo de banco ou internet banking. Apos o pagamento, a compensacao pode levar ate 2 dias uteis para ser confirmada. Seu pedido so sera processado e enviado apos a confirmacao do pagamento. Caso o boleto venca sem pagamento, o pedido sera cancelado automaticamente. Pagamentos via boleto contam com 5% de desconto sobre o valor total do pedido. O boleto nao aceita pagamento parcial; o valor deve ser pago integralmente.",
+    "category": "pagamento",
+    "keywords": [
+      "boleto",
+      "bancario",
+      "vencimento",
+      "compensacao",
+      "desconto",
+      "pagar"
+    ]
+  },
+  {
+    "id": "FAQ-015",
+    "question": "Como pagar com Pix na Tech Store Brasil?",
+    "answer": "O pagamento via Pix e rapido, seguro e oferece 5% de desconto sobre o valor total da compra. Ao selecionar Pix como forma de pagamento, sera gerado um QR Code e um codigo 'copia e cola' na tela de finalizacao do pedido. Voce pode escanear o QR Code pelo aplicativo do seu banco ou copiar o codigo para efetuar o pagamento. A confirmacao e instantanea, e seu pedido comeca a ser processado imediatamente apos a aprovacao. O QR Code tem validade de 30 minutos. Caso expire, voce podera gerar um novo acessando 'Meus Pedidos'. O Pix da Tech Store Brasil e processado pelo Mercado Pago, garantindo total seguranca na transacao.",
+    "category": "pagamento",
+    "keywords": [
+      "pix",
+      "qr code",
+      "instantaneo",
+      "desconto",
+      "rapido",
+      "transferencia"
+    ]
+  },
+  {
+    "id": "FAQ-016",
+    "question": "Meus dados de pagamento estao seguros?",
+    "answer": "Sim, a seguranca dos seus dados e prioridade absoluta na Tech Store Brasil. Utilizamos criptografia SSL/TLS de 256 bits em todas as paginas do site, garantindo que suas informacoes trafeguem de forma segura. Nosso gateway de pagamento possui certificacao PCI-DSS Nivel 1, o mais alto padrao de seguranca da industria de cartoes. Nao armazenamos os dados completos do seu cartao de credito em nossos servidores. Alem disso, contamos com sistema antifraude que analisa cada transacao em tempo real para proteger voce contra compras nao autorizadas. Em caso de qualquer atividade suspeita, nossa equipe entrara em contato para validar a compra.",
+    "category": "pagamento",
+    "keywords": [
+      "seguranca",
+      "seguro",
+      "dados",
+      "protecao",
+      "fraude",
+      "criptografia",
+      "ssl"
+    ]
+  },
+  {
+    "id": "FAQ-017",
+    "question": "Qual o prazo de garantia dos produtos?",
+    "answer": "Todos os produtos vendidos pela Tech Store Brasil possuem garantia legal de 90 dias, conforme o Codigo de Defesa do Consumidor. Alem disso, a maioria dos produtos eletronicos conta com garantia do fabricante, que geralmente varia de 1 a 2 anos dependendo da marca e categoria do produto. O prazo de garantia do fabricante esta sempre informado na pagina do produto. A garantia cobre defeitos de fabricacao e mau funcionamento em condicoes normais de uso. Danos causados por mau uso, quedas, contato com liquidos ou tentativa de reparo nao autorizado nao sao cobertos pela garantia.",
+    "category": "garantia",
+    "keywords": [
+      "garantia",
+      "prazo",
+      "tempo",
+      "duracao",
+      "fabricante",
+      "legal"
+    ]
+  },
+  {
+    "id": "FAQ-018",
+    "question": "O que a garantia cobre e o que nao cobre?",
+    "answer": "A garantia cobre defeitos de fabricacao, mau funcionamento de componentes, falhas de software pre-instalado e problemas que surgem em condicoes normais de uso. Isso inclui tela com pixels mortos acima do limite aceitavel, bateria com perda anormal de capacidade, botoes que param de funcionar, entre outros. A garantia nao cobre danos causados por quedas, impactos, contato com agua ou outros liquidos, uso de acessorios nao originais, tentativa de reparo por tecnico nao autorizado, desgaste natural do produto, riscos cosmeticos e danos por sobrecarga eletrica. Softwares e atualizacoes de sistema tambem nao sao cobertos pela garantia de hardware.",
+    "category": "garantia",
+    "keywords": [
+      "cobertura",
+      "cobre",
+      "nao cobre",
+      "defeito",
+      "dano",
+      "inclui",
+      "exclui"
+    ]
+  },
+  {
+    "id": "FAQ-019",
+    "question": "Como acionar a garantia de um produto?",
+    "answer": "Para acionar a garantia, acesse a area 'Meus Pedidos' no site da Tech Store Brasil e selecione o produto com problema. Clique em 'Acionar Garantia' e preencha o formulario descrevendo o defeito com detalhes, anexando fotos ou videos se possivel. Nossa equipe tecnica avaliara o caso em ate 3 dias uteis. Se aprovado, voce recebera instrucoes para enviar o produto a assistencia tecnica autorizada mais proxima ou ao nosso centro de distribuicao, com frete por nossa conta. O reparo ou substituicao sera realizado em ate 30 dias corridos, conforme previsto em lei. Tenha em maos a nota fiscal do produto, pois ela e indispensavel para o acionamento da garantia.",
+    "category": "garantia",
+    "keywords": [
+      "acionar",
+      "usar",
+      "solicitar",
+      "reclamar",
+      "nota fiscal",
+      "assistencia"
+    ]
+  },
+  {
+    "id": "FAQ-020",
+    "question": "Voces oferecem garantia estendida?",
+    "answer": "Sim, a Tech Store Brasil oferece o plano de garantia estendida TechCare, que prolonga a cobertura do seu produto por ate 2 anos alem da garantia do fabricante. O TechCare esta disponivel em tres modalidades: TechCare Basico (1 ano extra, cobre defeitos de fabricacao), TechCare Plus (2 anos extras, cobre defeitos e danos acidentais) e TechCare Premium (2 anos extras, cobre defeitos, danos acidentais e roubo/furto). O valor varia de 8% a 20% do preco do produto, dependendo da modalidade escolhida. A garantia estendida pode ser adquirida no momento da compra ou em ate 30 dias apos a aquisicao do produto. Para contratar, basta acessar 'Meus Pedidos' e selecionar a opcao 'Adicionar TechCare'.",
+    "category": "garantia",
+    "keywords": [
+      "garantia estendida",
+      "techcare",
+      "prolongar",
+      "extra",
+      "plano",
+      "protecao"
+    ]
+  },
+  {
+    "id": "FAQ-021",
+    "question": "Como criar uma conta na Tech Store Brasil?",
+    "answer": "Criar uma conta na Tech Store Brasil e rapido e gratuito. Clique no botao 'Cadastre-se' no canto superior direito do site e preencha o formulario com seu nome completo, CPF, e-mail, telefone e uma senha segura. Voce tambem pode se cadastrar utilizando sua conta Google ou Facebook para agilizar o processo. Apos o cadastro, enviaremos um e-mail de confirmacao para validar seu endereco eletronico. Com sua conta criada, voce podera acompanhar pedidos, salvar enderecos de entrega, adicionar produtos a lista de desejos e aproveitar ofertas exclusivas para clientes cadastrados. Seus dados sao protegidos conforme a LGPD (Lei Geral de Protecao de Dados).",
+    "category": "conta_cadastro",
+    "keywords": [
+      "criar",
+      "conta",
+      "cadastro",
+      "registrar",
+      "cadastrar",
+      "nova conta"
+    ]
+  },
+  {
+    "id": "FAQ-022",
+    "question": "Como alterar meus dados cadastrais?",
+    "answer": "Para alterar seus dados cadastrais, faca login na sua conta e acesse a secao 'Minha Conta' no menu superior. Na aba 'Dados Pessoais', voce podera atualizar nome, telefone, data de nascimento e senha. Na aba 'Enderecos', e possivel adicionar, editar ou remover enderecos de entrega. O CPF vinculado a conta nao pode ser alterado por questoes de seguranca; caso precise modifica-lo, entre em contato com nosso suporte. Alteracoes de e-mail exigem confirmacao por link enviado ao novo endereco eletronico. Recomendamos manter seus dados sempre atualizados para evitar problemas com entregas e comunicacoes importantes sobre seus pedidos.",
+    "category": "conta_cadastro",
+    "keywords": [
+      "alterar",
+      "atualizar",
+      "editar",
+      "modificar",
+      "dados",
+      "endereco",
+      "senha"
+    ]
+  },
+  {
+    "id": "FAQ-023",
+    "question": "Como excluir minha conta na Tech Store Brasil?",
+    "answer": "Voce pode solicitar a exclusao da sua conta a qualquer momento, conforme garantido pela LGPD. Acesse 'Minha Conta', va ate a aba 'Privacidade' e clique em 'Solicitar Exclusao de Conta'. Voce precisara confirmar sua identidade inserindo sua senha e um codigo enviado por e-mail. A exclusao sera processada em ate 15 dias uteis. Todos os seus dados pessoais serao removidos permanentemente dos nossos sistemas, incluindo historico de pedidos, enderecos e dados de pagamento. Apenas informacoes exigidas por obrigacoes legais e fiscais serao mantidas pelo prazo determinado em lei. Pedidos em andamento devem ser concluidos antes da exclusao da conta.",
+    "category": "conta_cadastro",
+    "keywords": [
+      "excluir",
+      "deletar",
+      "remover",
+      "apagar",
+      "encerrar",
+      "conta",
+      "lgpd"
+    ]
+  },
+  {
+    "id": "FAQ-024",
+    "question": "Qual o horario de atendimento da Tech Store Brasil?",
+    "answer": "Nosso atendimento ao cliente funciona de segunda a sexta-feira, das 8h as 20h, e aos sabados das 9h as 15h (horario de Brasilia). O chat online com atendentes humanos esta disponivel nesses mesmos horarios. Nosso assistente virtual com inteligencia artificial esta disponivel 24 horas por dia, 7 dias por semana, para responder duvidas frequentes, informar status de pedidos e auxiliar em processos simples. Em feriados nacionais, o atendimento humano pode ter horario reduzido ou estar indisponivel, mas o assistente virtual continuara ativo. O tempo medio de espera para atendimento humano e de 3 minutos no chat e 5 minutos no telefone.",
+    "category": "geral",
+    "keywords": [
+      "horario",
+      "atendimento",
+      "funcionamento",
+      "disponivel",
+      "aberto",
+      "horas"
+    ]
+  },
+  {
+    "id": "FAQ-025",
+    "question": "Quais sao os canais de contato da Tech Store Brasil?",
+    "answer": "A Tech Store Brasil oferece diversos canais de atendimento para voce escolher o mais conveniente. Nosso chat online esta disponivel diretamente no site e no aplicativo. Voce tambem pode nos contatar pelo telefone 0800-123-4567 (ligacao gratuita), pelo WhatsApp (11) 98765-4321, ou pelo e-mail suporte@techstorebrasil.com.br. Estamos presentes nas redes sociais no Instagram (@techstorebrasil), Facebook (facebook.com/techstorebrasil) e Twitter/X (@techstorebr), onde tambem respondemos mensagens e comentarios. Para reclamacoes formais, disponibilizamos atendimento via Reclame Aqui, onde mantemos o selo RA1000 de excelencia. O prazo de resposta e de ate 24 horas para e-mail e redes sociais, e imediato para chat e telefone.",
+    "category": "geral",
+    "keywords": [
+      "contato",
+      "canal",
+      "telefone",
+      "email",
+      "whatsapp",
+      "chat",
+      "redes sociais"
+    ]
+  }
+]

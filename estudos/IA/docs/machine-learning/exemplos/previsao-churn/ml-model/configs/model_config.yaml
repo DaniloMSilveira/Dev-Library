@@ -1,0 +1,67 @@
+# Projeto Desenvolvido na Data Science Academy
+#
+# Configurações do modelo de previsão de churn
+#
+# Este arquivo centraliza todos os hiperparâmetros e configurações do modelo,
+# separando configuração de código (princípio de externalização de configuração).
+# Alterar valores aqui não requer alteração no código-fonte Python.
+
+# ---------------------------------------------------------------------------
+# Configurações dos dados
+# ---------------------------------------------------------------------------
+data:
+  raw_path: "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv"   # Caminho do dataset (relativo ao diretório ml-model/)
+  target_column: "Churn"                                      # Nome da coluna alvo (variável que queremos prever)
+  test_size: 0.2                                              # Proporção para conjunto de teste (20%)
+  random_state: 42                                            # Semente para reprodutibilidade do split
+
+# ---------------------------------------------------------------------------
+# Configurações do modelo
+# ---------------------------------------------------------------------------
+model:
+  algorithm: "GradientBoostingClassifier"  # Algoritmo de classificação (ensemble de árvores)
+  params:
+    n_estimators: 200       # Número de árvores no ensemble (mais árvores = maior capacidade)
+    learning_rate: 0.1      # Taxa de aprendizado (controla a contribuição de cada árvore)
+    max_depth: 5            # Profundidade máxima de cada árvore (controla complexidade)
+    min_samples_split: 10   # Mínimo de amostras para dividir um nó
+    min_samples_leaf: 5     # Mínimo de amostras em uma folha
+    subsample: 0.8          # Fração de amostras usadas por árvore (stochastic gradient boosting)
+    random_state: 42        # Semente para reprodutibilidade do treinamento
+
+# ---------------------------------------------------------------------------
+# Caminhos de saída dos artefatos
+# ---------------------------------------------------------------------------
+output:
+  model_path: "models/churn_model.joblib"       # Pipeline completo serializado
+  metadata_path: "models/model_metadata.json"    # Metadados (versão, métricas, features)
+
+# ---------------------------------------------------------------------------
+# Definição das features de entrada
+# ---------------------------------------------------------------------------
+features:
+  # Features numéricas — serão normalizadas com StandardScaler
+  numeric:
+    - "tenure"
+    - "MonthlyCharges"
+    - "TotalCharges"
+  # Features categóricas — serão codificadas com OneHotEncoder
+  categorical:
+    - "gender"
+    - "SeniorCitizen"
+    - "Partner"
+    - "Dependents"
+    - "PhoneService"
+    - "MultipleLines"
+    - "InternetService"
+    - "OnlineSecurity"
+    - "OnlineBackup"
+    - "DeviceProtection"
+    - "TechSupport"
+    - "StreamingTV"
+    - "StreamingMovies"
+    - "Contract"
+    - "PaperlessBilling"
+    - "PaymentMethod"
+  # Coluna de identificação (será removida antes do treinamento)
+  id_column: "customerID"
