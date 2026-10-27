@@ -43,3 +43,10 @@ dist/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Node e VitePress
+node_modules/
+.vitepress/cache/
+.vitepress/dist/
+# Páginas de código geradas pelo site (.vitepress/codigo.mts)
+estudos/codigo/

@@ -1,5 +1,7 @@
 # 📚 Dev Library
 
+🌐 **Site:** https://danilomsilveira.github.io/Dev-Library/
+
 Este repositório reúne anotações, exemplos e materiais de estudo organizados por tema. A ideia é servir como um espaço prático para registrar aprendizados em áreas como Terraform, infraestrutura, automação e IA.
 
 ## Objetivo
@@ -21,3 +23,21 @@ Organizar os conteúdos estudados de forma simples e acessível, permitindo enco
 - Outros temas: conteúdos adicionais que forem sendo adicionados ao longo do estudo.
 
 Este repositório está em constante evolução e pode ser usado como referência pessoal de estudos.
+
+## Site
+
+O conteúdo de `estudos/` é publicado como site no GitHub Pages com [VitePress](https://vitepress.dev/). A cada push na branch `main` que altere `estudos/` ou a configuração do site, o workflow `.github/workflows/pages.yml` gera e publica o site.
+
+- A navegação segue a estrutura de pastas; o primeiro título (`#`) de cada arquivo vira o nome da página no menu.
+- A página inicial do site é `estudos/index.md`; a configuração fica em `.vitepress/`.
+- Os arquivos de código das pastas `exemplos/` e `examples/` também aparecem no site: cada exemplo ganha uma página com a árvore de arquivos e cada arquivo de código ganha uma página com realce de sintaxe. Essas páginas são geradas em `estudos/codigo/` (ignorada pelo git) a cada build.
+- Links relativos para pastas ou arquivos de código abrem essas páginas; notebooks, CSVs e arquivos grandes abrem no GitHub.
+
+Para visualizar localmente (requer Node.js 18 ou superior):
+
+```bash
+npm install
+npm run docs:dev
+```
+
+O site fica disponível em http://localhost:5173/Dev-Library/ e atualiza a cada arquivo salvo. Para conferir o build de produção, que também acusa links quebrados, use `npm run docs:build`.

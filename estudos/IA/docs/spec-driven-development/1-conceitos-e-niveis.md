@@ -100,5 +100,5 @@ Limites importantes:
 - [2. Artefatos e estrutura](./2-artefatos-e-estrutura.md): requisitos, design, tasks, constituição e SDD de feature.
 - [3. Fluxo operacional e checkpoints](./3-fluxo-operacional-e-checkpoints.md): do contexto inicial à implementação e à manutenção.
 - [4. Spec Kit e ferramentas](./4-spec-kit-e-ferramentas.md): comandos, papéis e critérios para escolher tooling.
-- [5. Exemplo com Angular](./5-exemplo-com-angular.md): uma feature pequena organizada em requirements, design e tasks.
+- [5. Exemplo com Angular](./5-exemplo-com-angular-dotnet.md): uma feature pequena organizada em requirements, design e tasks.
 - [6. SDD para agentes de IA](./6-sdd-para-agentes-de-ia.md): prompts, skills, revisão e limites de automação.
