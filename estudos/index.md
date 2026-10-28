@@ -26,6 +26,10 @@ features:
     details: Especificações como ponto de partida do desenvolvimento, inclusive com agentes de IA.
     link: /IA/docs/spec-driven-development/1-conceitos-e-niveis
     linkText: Abrir trilha
+  - title: Design Patterns de Agentes
+    details: ReAct, Reflection, Planning, Router, Supervisor e colaboração entre agentes de IA.
+    link: /IA/docs/design-patterns-agentes/1-agentes-e-padroes
+    linkText: Abrir trilha
   - title: FinOps
     details: Gestão de custos em nuvem e em projetos de IA.
     link: /FinOps/finops-cloud-ia
