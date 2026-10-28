@@ -40,4 +40,20 @@ npm install
 npm run docs:dev
 ```
 
-O site fica disponível em http://localhost:5173/Dev-Library/ e atualiza a cada arquivo salvo. Para conferir o build de produção, que também acusa links quebrados, use `npm run docs:build`.
+O site fica disponível em http://localhost:5173/Dev-Library/ e atualiza a cada arquivo salvo. Antes de publicar, rode `npm run verificar`: ele confere a estrutura do acervo e o build, que acusa links quebrados.
+
+## Do aprendizado à documentação com o Claude Code
+
+O repositório tem um fluxo para transformar o que estou aprendendo em documentação publicada usando o [Claude Code](https://code.claude.com):
+
+1. Registro o aprendizado em `rascunhos/`, escrevendo a partir de `rascunhos/_modelo.md` ou colando o material e usando `/registrar-aprendizado`.
+2. Uso `/documentar-aprendizado`. O Claude decide onde o tema entra no acervo, pede confirmação para trilhas ou áreas novas, escreve, cria exemplos, revisa com um subagente independente e roda `npm run verificar`.
+3. Reviso e faço o commit. O push publica o site.
+
+| Arquivo | Conteúdo |
+|---|---|
+| [CLAUDE.md](CLAUDE.md) | Instruções gerais do projeto |
+| [.claude/memoria.md](.claude/memoria.md) | Convenções, decisões, lacunas e histórico |
+| [.claude/rules/guia-de-estilo.md](.claude/rules/guia-de-estilo.md) | Padrão editorial, carregado ao editar `estudos/` |
+| [.claude/skills/](.claude/skills/) | Fluxos: registrar, documentar, planejar, escrever e revisar |
+| [.claude/agents/revisor-documentacao.md](.claude/agents/revisor-documentacao.md) | Subagente que revisa sem editar |

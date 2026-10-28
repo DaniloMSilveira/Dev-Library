@@ -6,6 +6,7 @@ on:
     paths:
       - "estudos/**"
       - ".vitepress/**"
+      - "scripts/**"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/pages.yml"
@@ -37,8 +38,9 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Gerar site
-        run: npm run docs:build
+      # Estrutura do acervo (scripts/verificar-estudos.mjs) e build do site.
+      - name: Verificar e gerar site
+        run: npm run verificar
 
       - uses: actions/upload-pages-artifact@v3
         with:

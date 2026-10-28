@@ -5,7 +5,10 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "estudos:catalogo": "node scripts/catalogo.mjs",
+    "estudos:verificar": "node scripts/verificar-estudos.mjs",
+    "verificar": "npm run estudos:verificar && npm run docs:build"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"
