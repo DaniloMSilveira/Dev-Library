@@ -14,7 +14,7 @@ Explique com as suas palavras: o conceito, como funciona, por que importa, o que
 
 ## Fontes
 
-- Curso, vídeo, artigo ou documentação (com link).
+- Documentação oficial, artigo ou vídeo público (com link). Não nomeie a instituição ou a plataforma de cursos.
 
 ## Exemplos, comandos ou código
 

@@ -42,6 +42,8 @@ const LANGUAGES: Record<string, string> = {
   ts: 'ts',
   cs: 'csharp',
   sql: 'sql',
+  md: 'md',
+  mjs: 'js',
 }
 const MAX_SIZE = 100_000
 
@@ -63,9 +65,15 @@ function language(file: string): string | undefined {
   return name.includes('.') ? LANGUAGES[name.slice(name.lastIndexOf('.') + 1)] : undefined
 }
 
+// O VitePress ignora pastas ocultas, então o Markdown delas (ex.: .claude/ nos exemplos
+// de harness) não vira página e é exibido como código.
+function isInHiddenDir(file: string): boolean {
+  return path.posix.dirname(file).split('/').some((part) => part.startsWith('.'))
+}
+
 function isViewable(file: string): boolean {
   return (
-    !file.endsWith('.md') &&
+    (!file.endsWith('.md') || isInHiddenDir(file)) &&
     !isExcludedDir(path.posix.dirname(file)) &&
     language(file) !== undefined &&
     fs.statSync(path.join(SRC_DIR, file)).size <= MAX_SIZE
@@ -86,12 +94,12 @@ function studyFiles(): string[] {
     .filter((f) => fs.existsSync(path.join(SRC_DIR, f)))
 }
 
-// Um exemplo é cada subpasta de exemplos/ (ou examples/) com arquivos que não são Markdown.
-// Se exemplos/ tiver arquivos soltos, a própria pasta exemplos/ é o exemplo.
+// Um exemplo é cada subpasta de exemplos/ (ou examples/) com arquivos que não são páginas
+// (código, ou Markdown em pasta oculta). Se exemplos/ tiver arquivos soltos, a própria pasta é o exemplo.
 function findExampleDirs(files: string[]): string[] {
   const dirs = new Set<string>()
   for (const file of files) {
-    if (file.endsWith('.md')) continue
+    if (file.endsWith('.md') && !isInHiddenDir(file)) continue
     const parts = file.split('/')
     const i = parts.findIndex((p) => EXAMPLE_DIRS.has(p))
     if (i < 0) continue
@@ -166,7 +174,7 @@ function treePage(example: Example, files: string[], fileLinks: Map<string, stri
     }
     for (const file of node.files.sort((a, b) => byName(path.posix.basename(a), path.posix.basename(b)))) {
       const label = escapeMarkdown(path.posix.basename(file))
-      const isSitePage = file.endsWith('.md') && !isExcludedDir(path.posix.dirname(file))
+      const isSitePage = file.endsWith('.md') && !isInHiddenDir(file) && !isExcludedDir(path.posix.dirname(file))
       const link = fileLinks.get(file) ?? (isSitePage ? '/' + file.replace(/\.md$/, '') : undefined)
       lines.push(link ? `${indent}- [${label}](${link})` : `${indent}- [${label} ↗](${githubUrl('blob', file)})`)
     }

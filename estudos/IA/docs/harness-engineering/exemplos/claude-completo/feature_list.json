@@ -1,0 +1,46 @@
+{
+  "regras": {
+    "uma_feature_por_vez": true,
+    "concluida_exige_evidencia": true,
+    "nao_remover_passos_de_verificacao": true
+  },
+  "features": [
+    {
+      "id": "FAT-001",
+      "prioridade": 1,
+      "descricao": "Emitir fatura com itens e total calculado",
+      "verificacao": [
+        "pytest tests/servicos/test_emissao.py",
+        "POST /faturas com dois itens devolve 201 e total igual à soma dos itens"
+      ],
+      "status": "concluida",
+      "evidencia": [
+        "2026-10-21: pytest tests/servicos/test_emissao.py passou",
+        "2026-10-21: POST /faturas com dois itens devolveu 201 e o total esperado"
+      ]
+    },
+    {
+      "id": "FAT-002",
+      "prioridade": 2,
+      "descricao": "Aplicar multa por atraso usando o percentual do contrato do cliente",
+      "verificacao": [
+        "pytest tests/servicos/test_encargos.py",
+        "Pagamento após o vencimento registra a multa na fatura",
+        "Pagamento em dia não registra multa"
+      ],
+      "status": "em_andamento",
+      "evidencia": []
+    },
+    {
+      "id": "FAT-003",
+      "prioridade": 3,
+      "descricao": "Cancelar fatura mantendo o registro com status cancelada",
+      "verificacao": [
+        "pytest tests/api/test_cancelamento.py",
+        "Fatura cancelada continua aparecendo na consulta, com status cancelada"
+      ],
+      "status": "pendente",
+      "evidencia": []
+    }
+  ]
+}

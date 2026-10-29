@@ -20,11 +20,12 @@ Se nenhum caminho foi informado, revise as páginas de `estudos/` alteradas em r
 2. Verifique se o título, o escopo e o nível correspondem ao conteúdo.
 3. Procure erros factuais, termos não definidos, generalizações e afirmações sem fonte.
 4. Confira a numeração, os links relativos, os nomes de arquivos, os comandos e os exemplos.
-5. Avalie se a progressão vai da intuição para o mecanismo e a aplicação.
-6. Verifique se limites, trade-offs, riscos, custos e versões foram tratados quando relevantes.
-7. Confira se tabelas e código são necessários, legíveis e coerentes com o texto.
-8. Se a página veio de um rascunho (`rascunhos/`, campo `documentado-em`), confira se ela preserva o que o usuário escreveu e se o que foi acrescentado tem sustentação.
-9. Rode `npm run verificar` e inclua o resultado.
+5. Procure material de terceiros (guia de estilo, seção 8): trechos copiados, código de curso e nomes de instituições de ensino ou plataformas de cursos, inclusive em URLs, comentários e nomes de recursos dos exemplos.
+6. Avalie se a progressão vai da intuição para o mecanismo e a aplicação.
+7. Verifique se limites, trade-offs, riscos, custos e versões foram tratados quando relevantes.
+8. Confira se tabelas e código são necessários, legíveis e coerentes com o texto.
+9. Se a página veio de um rascunho (`rascunhos/`, campo `documentado-em`), confira se ela preserva o que o usuário escreveu e se o que foi acrescentado tem sustentação.
+10. Rode `npm run verificar` e inclua o resultado.
 
 ## Classificação dos achados
 

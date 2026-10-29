@@ -100,8 +100,10 @@ export function siteLinks(code: CodeSite) {
           const href = token.attrGet('href')
           if (!href || /^([a-z][a-z0-9+.-]*:|#|\/)/i.test(href)) continue
           const target = decodeURI(href.split('#')[0])
-          if (!target || /\.(md|html)$/i.test(target)) continue
+          if (!target || /\.html$/i.test(target)) continue
           const srcPath = path.posix.normalize(path.posix.join(path.posix.dirname(relativePath), target)).replace(/\/$/, '')
+          // Markdown é página do VitePress, exceto o de pastas ocultas, que tem página de código.
+          if (/\.md$/i.test(target) && !code.fileLinks.has(srcPath)) continue
           const absPath = path.join(SRC_DIR, srcPath)
           // Caminhos fora de estudos/ ou inexistentes ficam como estão para o build acusar o link quebrado.
           if (srcPath.startsWith('..') || !fs.existsSync(absPath)) continue

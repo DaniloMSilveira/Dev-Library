@@ -6,7 +6,7 @@ Todo Markdown em `estudos/` é publicado como site em https://danilomsilveira.gi
 
 ## Memória do projeto
 
-Convenções, decisões e lacunas do projeto ficam em `.claude/memoria.md`, importada abaixo e versionada no repositório. Registre ali o que vale para o projeto; a memória automática do Claude Code é pessoal e não vai para o git.
+As convenções do projeto ficam em `.claude/memoria.md`, importada abaixo e versionada no repositório. Registre ali como o projeto funciona hoje, sem histórico, lacunas nem justificativas de decisões, porque o arquivo é público; a memória automática do Claude Code é pessoal e não vai para o git.
 
 @.claude/memoria.md
 
@@ -54,6 +54,7 @@ O usuário registra o que aprendeu em `rascunhos/` e os agentes transformam isso
 - Diferencie fatos, interpretações, analogias, recomendações e opiniões.
 - Afirmações que dependem de versão, preço, número ou regulamentação precisam de fonte ou data de verificação.
 - Nunca inclua segredos, credenciais, tokens ou dados pessoais em páginas, exemplos ou rascunhos. Exemplos usam `.env.example`.
+- Nunca inclua material de cursos nem nomes de instituições de ensino ou plataformas de cursos, em nenhum arquivo nem em mensagens de commit (guia de estilo, seção 8).
 - Prefira mudanças pequenas e locais. Não misture reorganização ampla com conteúdo novo, e não reorganize estruturas legadas sem pedido explícito.
 - Não remova alterações existentes de outras pessoas ou sessões.
 - Não faça commit nem push sem pedido explícito do usuário.
@@ -61,5 +62,5 @@ O usuário registra o que aprendeu em `rascunhos/` e os agentes transformam isso
 ## Antes de concluir
 
 1. `npm run verificar` precisa passar. Se não for possível rodá-lo, diga isso.
-2. Atualize `.claude/memoria.md` se uma convenção, decisão ou lacuna mudou.
+2. Atualize `.claude/memoria.md` se uma convenção mudou.
 3. Resuma os arquivos alterados, as validações executadas e o que ainda depende de revisão humana.

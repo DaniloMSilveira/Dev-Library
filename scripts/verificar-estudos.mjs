@@ -4,6 +4,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import {
+  commitMessages,
   ESTUDOS,
   h1Titles,
   isExampleFile,
@@ -12,6 +13,8 @@ import {
   listDrafts,
   listStudyFiles,
   readText,
+  ROOT,
+  versionableFiles,
 } from './comum.mjs'
 
 const errors = []
@@ -36,16 +39,45 @@ for (const page of pages) {
   }
 }
 
-// Direitos autorais: o acervo é público e não guarda material de cursos nem citações de terceiros.
-const THIRD_PARTY_MARKERS = /projeto desenvolvido na|todos os direitos reservados|all rights reserved/i
-const TEXT_FILES = /\.(md|py|ipynb|tf|hcl|ya?ml|json|sh|toml|txt|js|ts|cs|sql|html|css)$|(^|\/)Dockerfile$/
-for (const file of listStudyFiles().filter((f) => TEXT_FILES.test(f))) {
-  readText(path.join(ESTUDOS, file))
-    .split(/\r?\n/)
-    .forEach((line, i) => {
-      if (THIRD_PARTY_MARKERS.test(line)) errors.push(`${file}:${i + 1}: marca de material de terceiros ("${line.trim().slice(0, 60)}").`)
-    })
+// Direitos autorais: o repositório é público e não guarda material de cursos, citações de terceiros
+// nem nomes de instituições de ensino. Os padrões são genéricos de propósito, para que este arquivo
+// não precise citar nenhuma instituição.
+const THIRD_PARTY_MARKERS = [
+  /projeto desenvolvido (na|no|pela|pelo)\b/i,
+  /todos os direitos reservados|all rights reserved|copyright ©/i,
+  /certificado de conclus[ãa]o|(instrutor|professor)\s+do\s+curso/i,
+  /cap[íi]tulo\s+\d+\s+do\s+curso/i,
+  // "curso da Fulano", "aula na Fulano": evento de ensino seguido de nome próprio.
+  /(^|[^\p{L}])(curso|aula|bootcamp|treinamento|imers[ãa]o|forma[çc][ãa]o)\s+(da|do|na|no|pela|pelo)\s+\p{Lu}/u,
+  // Nomes com cara de instituição de ensino: "Fulano Academy", "Escola Fulano".
+  /\p{Lu}[\p{L}\p{N}]*\s+(Academy|School|Bootcamp)\b/u,
+  /(^|[^\p{L}])(Escola|Academia|Faculdade)\s+((de|do|da)\s+)?\p{Lu}/u,
+  // Organizações e domínios de plataformas de cursos.
+  /github\.com\/[\w.-]*(cursos?|academy|school|bootcamp|edu)\b/i,
+  /\b[\w-]*(cursos?|academy|school|bootcamp)\.(com|io|org|net)(\.br)?\b/i,
+]
+const TEXT_FILES = /\.(md|mdx|py|ipynb|tf|hcl|ya?ml|json|sh|ps1|toml|txt|js|mjs|mts|ts|cs|sql|html|css|vue)$|(^|\/)Dockerfile$/
+const SKIP_FILES = new Set(['scripts/verificar-estudos.mjs', 'package-lock.json'])
+
+function thirdPartyMarks(text) {
+  const found = []
+  text.split(/\r?\n/).forEach((line, i) => {
+    if (THIRD_PARTY_MARKERS.some((re) => re.test(line))) found.push(i + 1)
+  })
+  return found
 }
+
+// Todo arquivo que pode ir para o git, não só estudos/: rascunhos, instruções e scripts também são públicos.
+for (const file of versionableFiles().filter((f) => TEXT_FILES.test(f) && !SKIP_FILES.has(f))) {
+  for (const number of thirdPartyMarks(readText(path.join(ROOT, file))))
+    errors.push(`${file}:${number}: marca de material de curso ou de instituição de ensino (guia de estilo, seção 8).`)
+}
+
+// As mensagens de commit também são públicas.
+for (const { hash, body } of commitMessages()) {
+  if (thirdPartyMarks(body).length) errors.push(`commit ${hash}: marca de material de curso ou de instituição de ensino na mensagem.`)
+}
+
 for (const page of pages) {
   for (const { line, number } of linesOutsideFences(readText(path.join(ESTUDOS, page)))) {
     if (/^>\s*["“]/.test(line))

@@ -1,6 +1,7 @@
 // Funções compartilhadas pelos scripts de scripts/.
 import fs from 'node:fs'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 export const ROOT = fileURLToPath(new URL('..', import.meta.url))
@@ -95,5 +96,34 @@ export function listDrafts() {
       const text = readText(path.join(RASCUNHOS, f))
       const data = frontmatter(text)
       return { file: `rascunhos/${f}`, tema: data.tema || h1Titles(text)[0]?.title || f, status: data.status || 'novo', area: data.area || '' }
+    })
+}
+
+function git(args) {
+  try {
+    return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] })
+  } catch {
+    return null
+  }
+}
+
+// Arquivos versionados e novos não ignorados (caminhos relativos à raiz, com "/").
+// Fora de um repositório git, recai para os arquivos de estudos/.
+export function versionableFiles() {
+  const out = git(['ls-files', '-z', '--cached', '--others', '--exclude-standard'])
+  if (out === null) return listStudyFiles().map((f) => `estudos/${f}`)
+  return [...new Set(out.split('\0').filter(Boolean))].filter((f) => fs.existsSync(path.join(ROOT, f))).sort()
+}
+
+export function commitMessages() {
+  const out = git(['log', '--all', '--format=%h%x00%B%x01'])
+  if (out === null) return []
+  return out
+    .split('\x01')
+    .map((entry) => entry.replace(/^\s+/, ''))
+    .filter(Boolean)
+    .map((entry) => {
+      const [hash, body = ''] = entry.split('\0')
+      return { hash, body }
     })
 }

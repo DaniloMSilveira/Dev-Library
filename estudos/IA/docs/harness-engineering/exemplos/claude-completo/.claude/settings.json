@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(pytest *)",
+      "Bash(ruff check .)",
+      "Bash(./init.sh)",
+      "Bash(alembic revision *)",
+      "Edit(/app/**)",
+      "Edit(/tests/**)",
+      "Edit(/feature_list.json)",
+      "Edit(/progresso.md)",
+      "WebFetch(domain:fastapi.tiangolo.com)",
+      "WebFetch(domain:docs.sqlalchemy.org)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(pip install *)",
+      "Bash(alembic upgrade *)",
+      "Bash(rm -rf *)",
+      "Edit(/migrations/**)",
+      "Edit(/CLAUDE.md)",
+      "Edit(/.claude/**)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(!.env.example)",
+      "Read(**/*.pem)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Bash(git push *)",
+      "Bash(curl *)",
+      "Bash(wget *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/hooks/contexto-inicial.mjs\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/hooks/bloquear-comandos.mjs\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/hooks/proteger-arquivos.mjs\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/hooks/lint-apos-edicao.mjs\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": ["alembic upgrade *"],
+    "network": {
+      "allowedDomains": ["pypi.org", "files.pythonhosted.org"]
+    }
+  }
+}

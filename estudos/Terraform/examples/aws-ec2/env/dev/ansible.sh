@@ -15,6 +15,7 @@ tee -a playbook.yml > /dev/null <<EOT
     become: true
   - name: Clonando repositório do projeto
     git:
+      # Ilustrativo: substitua pelo repositório da sua aplicação Django.
       repo: https://github.com/SEU-USUARIO/SUA-API-DJANGO.git
       dest: /home/ubuntu/app
       version: master

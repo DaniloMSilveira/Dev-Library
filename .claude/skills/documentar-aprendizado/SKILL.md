@@ -73,7 +73,7 @@ Quando o rascunho tiver código ou o tema pedir prática:
 ## 8. Registrar
 
 - No rascunho, defina `status: documentado` e preencha `documentado-em` com os caminhos das páginas. Não apague o rascunho.
-- Atualize `.claude/memoria.md` somente se surgiu uma convenção, decisão ou lacuna nova, e registre-a no histórico com a data.
+- Atualize `.claude/memoria.md` somente se surgiu uma convenção nova. Não registre histórico, lacunas nem justificativas: o arquivo é público.
 
 ## Relatório final
 

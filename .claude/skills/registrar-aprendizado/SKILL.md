@@ -25,7 +25,7 @@ Material passado na invocação (se estiver vazio, use o que o usuário escreveu
    - não complete o conteúdo com conhecimento seu;
    - se notar um erro provável ou uma lacuna, registre em "Dúvidas e pontos a confirmar" com o prefixo `[agente]`;
    - links e fontes vão em "Fontes"; código vai em blocos com a linguagem indicada.
-5. **Não copie material de terceiros.** O rascunho é versionado em um repositório público. Se o material vier de curso, livro, PDF ou artigo, registre um resumo com palavras próprias e a fonte em "Fontes", nunca o texto ou o código original. Anotações escritas pelo próprio usuário seguem a regra de fidelidade acima.
+5. **Não copie material de terceiros.** O rascunho é versionado em um repositório público. Se o material vier de curso, livro, PDF ou artigo, registre um resumo com palavras próprias e a fonte em "Fontes", nunca o texto ou o código original. Não nomeie a instituição ou a plataforma do curso: em "Fontes", aponte a documentação oficial ou outro material público sobre o tema (guia de estilo, seção 8). Anotações escritas pelo próprio usuário seguem a regra de fidelidade acima.
 6. **Remova segredos.** Se o material tiver tokens, senhas, chaves ou dados pessoais, substitua por `<removido>` e avise o usuário.
 
 ## Saída

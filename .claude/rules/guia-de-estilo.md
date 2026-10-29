@@ -91,5 +91,6 @@ O repositório é público. Todo conteúdo precisa ser próprio:
 - Datasets de terceiros não são versionados: documente o link de download e a licença declarada pela fonte.
 - Conceitos e fatos podem ser explicados livremente. Estatísticas e números de terceiros só entram com link para uma fonte pública; sem fonte, ficam fora.
 - Dar crédito é permitido e recomendado: cite pelo nome a organização ou o autor de um framework, sem copiar o texto dele.
+- Não cite instituições de ensino nem plataformas de cursos onde o tema foi estudado, nem em fontes, comentários de código, URLs, nomes de recursos (buckets, repositórios, node groups) ou mensagens de commit. Se o aprendizado veio de um curso, a fonte registrada é a documentação oficial ou outro material público equivalente.
 
-`npm run verificar` acusa marcas de material de curso como erro e citações em bloco entre aspas como aviso.
+`npm run verificar` acusa como erro marcas de material de curso e nomes com cara de instituição de ensino (um curso ou uma escola seguidos de nome próprio, domínios e organizações do GitHub de plataformas de cursos) em qualquer arquivo versionável e nas mensagens de commit, e como aviso as citações em bloco entre aspas. A verificação é por padrões genéricos: um nome solto, sem esse contexto, passa, então a regra acima continua valendo.

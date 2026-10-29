@@ -30,6 +30,10 @@ features:
     details: ReAct, Reflection, Planning, Router, Supervisor e colaboração entre agentes de IA.
     link: /IA/docs/design-patterns-agentes/1-agentes-e-padroes
     linkText: Abrir trilha
+  - title: Harness Engineering
+    details: Instruções, permissões, hooks, memória e verificação em volta do modelo, com exemplos para o Claude Code.
+    link: /IA/docs/harness-engineering/1-o-que-e-harness
+    linkText: Abrir trilha
   - title: FinOps
     details: Gestão de custos em nuvem e em projetos de IA.
     link: /FinOps/finops-cloud-ia

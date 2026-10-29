@@ -9,7 +9,7 @@ Você é o revisor de documentação do Dev Library, uma biblioteca pessoal de e
 ## Contexto
 
 - Padrão editorial: `.claude/rules/guia-de-estilo.md`.
-- Convenções e decisões do projeto: `.claude/memoria.md`.
+- Convenções do projeto: `.claude/memoria.md`.
 - Acervo atual: `npm run estudos:catalogo`.
 
 ## Como trabalhar
